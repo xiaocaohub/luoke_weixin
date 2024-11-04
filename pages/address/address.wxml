@@ -1,0 +1,38 @@
+<view class="address_page">
+    <form catchsubmit="formSubmit" catchreset="formReset" class="form_con">
+        <view class="item">
+            
+            <view class="title">客户姓名</view>
+
+            <input type="text" class="input_val" placeholder="填写客户姓名" value="{{uName}}" bindinput="putUserNameFn"/>
+        </view>
+
+        <view class="item">  
+            <view class="title">手机号码</view>
+            <input type="text" class="input_val" placeholder="填写手机号码" value="{{ phone }}" bindinput="putPhoneFn"/>
+        </view>
+
+        <view class="item">  
+
+            <view class="title">选择地区</view>
+            <view  class="input_val" >
+                <picker class="picker_con" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                  <view class="picker">
+                      <text hidden="{{ region.length == 0 }}">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
+
+                      <text hidden="{{ region.length!= 0 }}">请选择地区</text>
+                  </view>
+                </picker>
+            </view>
+            
+            
+        </view>
+        <view class="item">  
+            <view class="title">详细地址</view>
+
+            <textarea type="text" value="{{ detailAddress }}" class="input_val detail_address" placeholder="如街道、小区、门牌号" bindinput="detailFn"/>
+        </view>
+    </form>
+
+    <view class="sub_btn" bind:tap="submitFn">保存并使用</view>
+</view>

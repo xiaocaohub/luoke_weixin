@@ -1,0 +1,58 @@
+.shop{
+    width: 686rpx;
+    margin:0 32rpx;
+
+    border-top: 1px solid #E1E1E1;
+
+  
+}
+
+.shop .shop_good_list_con {
+    width: 100%;
+ 
+    height: 144rpx;
+ 
+}
+.shop .shop_good_list_con .shop_good_list{
+    width: 1500rpx;
+    height: 144rpx;
+}
+.shop .shop_good_list_con  .shop_good{
+    width: 220rpx;
+    height: 144rpx;
+    float: left;
+    margin-left: 12rpx;
+    position: relative;
+ 
+}
+.shop .shop_good_list_con .shop_good .count {
+    position: absolute;
+
+    right: 10rpx;
+    bottom: 0;
+    z-index: 10;
+    font-size: 20rpx;
+    color: #333;
+}
+
+
+
+.shop .shop_good_list_con .shop_good .img {
+    display: block;
+    width: 220rpx;
+    height: 144rpx;
+}
+.shop .shop_good_list_con  .shop_good:first-child{
+    margin-left: 0;
+}
+.shop .remark {
+    width: 666rpx;
+    height: 150rpx;
+    margin:20rpx auto;
+    border: 1px solid #FAFAFA;
+    padding:10rpx;   
+    font-size: 28rpx;
+    background: #FAFAFA;
+  }
+
+ 

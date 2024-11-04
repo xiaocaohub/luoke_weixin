@@ -1,0 +1,41 @@
+<view class="cart_page_con">
+    <view class="top_total_con">
+        <view class="good_count">全选商品({{ selectGood.length }})</view>
+        <view class="btn" hidden="{{ operateFlag }}" bind:tap="operateFn">管理</view>
+        <view class="btn" hidden="{{ !operateFlag }}" bind:tap="operateFn">完成</view>
+    </view>
+
+    <scroll-view class="good_list" scroll-y="true">
+        <w-good wx:for="{{ goodArr }}" wx:key="index"  goodItem="{{ item }}" index="{{ index }}" supplyPriceStatus="{{ supplyPriceStatus }}"  roleId="{{ roleId }}" bind:cartAddFn="addFn" bind:cartReduceFn="reduceFn" bind:cartSelectGoodFn="selectGoodFn" bind:cartPutCountFn="putCountFn"></w-good>
+
+        <image src="{{ emptyImg }}" class="empty_img" hidden="{{ goodArr.length !=0 }}"></image>
+        <view class="title_msg" hidden="{{ goodArr.length !=0 }}">暂无商品</view>
+    </scroll-view>
+
+    <view class="bottom_total_con" hidden="{{ operateFlag }}">
+        <view class="total_con">    
+           <span class="select_all" bind:tap="selectAllFn">
+              <image class="img" src="{{ selectAllFlag?selectOnIcon:selectIcon }}"></image>
+              <span>全选</span>
+           </span>
+           <span class="select_count">已选{{ totalCount }}件,</span>
+           <span class="unit">￥</span>
+           <span class="total_money">{{ totalMoney }}</span>
+        </view>
+        <view class="btn_group">
+            <!-- <view class="btn" bind:tap="exportCartFn">导出清单</view> -->
+            <view class="btn buy_btn" bind:tap="confirmGoodFn">下单采购</view>
+        </view>
+    </view>
+    <view class="bottom_total_con" hidden="{{ !operateFlag }}">
+        <view class="total_con">
+           <span class="select_all" bind:tap="selectAllFn">
+              <image class="img" src="{{ selectAllFlag?selectOnIcon:selectIcon }}"></image>
+              <span>全选</span>
+           </span>
+        </view>
+        <view class="delete_btn" bind:tap="deleteGoodConfirmFn">删除</view>
+    
+    
+    </view>
+</view>

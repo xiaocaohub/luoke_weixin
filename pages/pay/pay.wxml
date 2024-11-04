@@ -1,0 +1,117 @@
+<view class="pay_page">
+    <view class="order_info">
+        <view class="title tit_title"><image src="{{ clockIcon }}" class="clock_icon"></image>等待付款</view>        
+        <view class="time_con">还剩 <span class="time"> {{ dateText }} </span> 订单自动取消</view>
+        <view class="item">
+           <view class="tit">订单金额</view>
+           <view class="txt">{{ totalPrice }}元</view>
+        </view>
+        
+        <view class="item">
+          <view class="tit">订单编号</view>
+           <view class="txt">{{ orderNumber }}</view>
+        </view>
+
+        <view class="item">
+           <view class="tit">订单详情</view>
+           <navigator class="txt" url="/pages/orderDetail/orderDetail?id={{  orderNumber }}">
+               <image src="{{ rightIcon }}" class="right_icon"></image>
+               <span class="a" > 查看详情 </span>
+               
+           </navigator>
+        </view>
+    </view>
+
+     <view class="pay_select_con">
+         <view class="total_con">
+             <span class="tit">选择支付方式</span>
+             <span>支付: <span class="total_money">33783元</span> </span>
+         </view>
+         <view class="pay_type" data-type="weichat" bind:tap="selectPayFn">         
+             <view class="title_con">
+                 <image src="{{ wechatIcon }}" class="pay_img"></image>
+                 <span>微信支付</span>
+             </view>
+
+             <image src="{{payType=='weichat'?checkedIcon:checkIcon}}" class="select_icon"></image>
+         </view>
+
+
+          <view class="pay_type" data-type="bank" bind:tap="selectPayFn"> 
+              <view class="title_con">
+                  <image src="{{ bankIcon }}" class="pay_img"></image>
+                  <view>
+                      <view>银行转账</view>
+                      <view class="txt">支持全国转账</view>
+                  </view>
+              </view>
+              <image src="{{payType=='bank'?checkedIcon:checkIcon}}" class="select_icon"></image>
+          </view>
+     </view>
+
+      <view class="pay_info" hidden="{{ payType !== 'bank'}}">
+          <view class="title">收款信息</view>
+          <view class="item">
+             <view class="tit">收款银行</view>
+             <view class="txt">平安银行</view>
+          </view>
+          <view class="item">
+             <view class="tit">账户名称</view>
+             <view class="txt">深圳市珞珂家居有限公司</view>
+          </view>
+          <view class="item">
+             <view class="tit">开户行</view>
+             <view class="txt address_txt">平安银行深圳龙岗支行</view>
+          </view>
+          <view class="item">
+             <view class="tit">账户号码</view>
+             <view class="txt">1574 7827 5300 15</view>
+          </view>
+      </view>
+      <view class="pay_info" hidden="{{ payType !== 'bank'}}">
+          <view class="title">付款信息</view>
+          <view class="item">
+             <view class="tit">付款银行</view>
+             <input type="text" class="put_val" placeholder="请填写汇款银行" bindinput="putBankFn"/>
+          </view>
+          <view class="item">
+             <view class="tit">汇款日期</view>
+             <view class="txt">
+              <image src="{{ rightIcon }}" class="right_icon"></image>
+              <picker mode="date" value="{{ payDate }}"   bindchange="bindDateChange" class="picker_con">
+                  <view class="picker">
+                     {{ payDate }}
+                  </view>
+                </picker>
+             </view>
+          </view>
+
+          <!-- <view class="item">
+             <view class="tit">汇款时间</view>
+             <view class="txt">
+                <image src="{{ rightIcon }}" class="right_icon"></image>
+                <picker mode="time" value="{{ payTime }}"  bindchange="bindTimeChange" class="picker_con">
+                    <view class="picker">
+                      {{ payTime }}
+                    </view>
+                </picker>     
+             </view>
+          </view> -->
+          
+          <view class="upload_con">
+             <view class="pay_img" wx:for="{{ upImgArr }}" wx:key="index">
+             
+                 <image src="{{ item }}"  class="img"></image>
+                 <image src="{{ closeIcon }}" class="close_btn" data-index="{{ index }}" bind:tap="deleteImgFn"></image>
+             </view>
+
+              <view class="upload_btn" hidden="{{ upImgArr.length>=5 }}">
+                  <image src="{{ uploadBtn }}"class="img" bind:tap="selectImgFn"></image>
+                  <!-- <view class="txt">最多传5张转账凭证</view> -->
+              </view>        
+          </view>
+      </view>
+      <view class="pay_btn" hidden="{{ payType !== 'weichat'}}" bind:tap="confirmSubmitFn">确认交易</view>
+      
+      <view class="pay_btn" hidden="{{ payType !== 'bank'}}" bind:tap="submitFn"> 提交付款信息 </view>
+</view>

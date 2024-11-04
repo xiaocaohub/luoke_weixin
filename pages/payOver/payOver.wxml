@@ -1,0 +1,13 @@
+<view class="pay_over_page">
+    <view class="title">
+        <image src="{{ payOverIcon }}" class="img"></image>
+
+        <span>支付成功</span>
+    </view>
+    <view class="order_number">订单编号: {{ orderNumber }}</view>
+
+    <view class="btn_group">
+        <navigator class="btn" url="/pages/orderDetail/orderDetail?id={{  orderNumber }}">查看订单</navigator>
+        <navigator class="btn back_btn" url="/pages/index/index" open-type="switchTab">继续逛逛</navigator>
+    </view>
+</view>

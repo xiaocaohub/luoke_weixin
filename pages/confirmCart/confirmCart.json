@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "提交采购单",
+    "usingComponents": {
+       
+      "v-good": "/components/confirmCart/good/good",
+
+      "v-shop": "/components/confirmCart/shop/shop"
+    }
+}

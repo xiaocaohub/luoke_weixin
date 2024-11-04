@@ -1,0 +1,107 @@
+<wxs src="../../wxs/filter.wxs" module="filter" />
+<view class="order_detail_page">
+    <view class="info_list">
+        <view class="info_con">            
+              <view class="title">订单信息</view>
+
+              <view class="item">
+                  <view class="tit">购买时间</view>
+                  <view class="txt"> {{ orderInfo.createTime }} </view>
+              </view>
+              <view class="item">
+                  <view class="tit">付款方式</view>
+                  <view class="txt">银行转账</view>
+              </view>
+              <view class="item">
+
+                  <view class="tit">订单状态</view>
+                  <view class="txt">  {{  filter.filterStatusFn(orderInfo.status) }} </view>
+              </view>
+        </view>
+        <view class="info_con">
+            
+              <view class="title">时间管理</view>
+              <view class="item">
+                  <view class="tit">期望发货时间</view>
+                  <view class="txt"> {{orderInfo.expectedDeliveryTime?orderInfo.expectedDeliveryTime:"--"}} </view>
+              </view>
+              <view class="item">
+                  <view class="tit">预计发货时间</view>
+
+                  <view class="txt"> {{ estimatedDeliveryTime?estimatedDeliveryTime:"--" }} </view>
+              </view>
+              <view class="item">
+                  <view class="tit">实际发货时间</view>
+                  <view class="txt"> {{ realDeliveryTime?realDeliveryTime:"--" }} </view>
+              </view>
+          </view>
+
+
+
+          <view class="info_con"> 
+                <view class="title">收货信息</view>
+                <view class="item">
+                    <view class="tit">收件人</view>
+                    <view class="txt"> {{ orderInfo.name }} </view>
+                </view>
+                <view class="item">
+                    <view class="tit">联系方式</view>
+                    <view class="txt"> {{ orderInfo.mobile }} </view>
+                </view>
+                <view class="item">
+                    <view class="tit">收货地址</view>
+                    <view class="txt address_txt"> {{orderInfo.provice}} {{ orderInfo.city}} {{ orderInfo.area }} {{ orderInfo.address}} </view>
+                </view>
+          </view>
+
+          <view class="info_con">
+               <view class="title">订单跟踪</view>
+               <view class="order_status_con">
+                    
+                    <view class="status_item" wx:for="{{ messages }}" wx:key="index">
+                        <view class="tit"> {{ item.messageContent }} </view>
+                        <view class="time"> {{  filter.filterTimeFn(item.createTime) }}  </view>
+                        <view class="circle_icon"></view>
+                        <view class="line"></view>
+                    </view>
+                    
+                  
+
+               </view>
+          </view>
+    </view>
+
+ 
+
+    <view class="order_list_con">
+        <view class="order" wx:for="{{ orderArr }}" wx:for-item="orderItem" wx:key="index">
+            <view class="order_title">
+                <span>订单编号: <span class="order_number"> {{ orderItem.orderNo?orderItem.orderNo:"--" }} </span></span>
+                <span class="status"> {{  filter.filterStatusFn(orderItem.status) }} </span>
+            </view>
+
+            <view class="good_list">
+                <view class="good" wx:for="{{ orderItem.details }}" wx:key="i" wx:for-index="i" wx:for-item="goodItem">      
+                      <view class="good_img">
+                          <image src="{{ goodItem.imgurl }}" class="img"></image>
+                      </view>
+                      <view class="info">
+                          <view class="title"> {{ goodItem.productName }} </view>
+                          <view class="txt">{{ goodItem.parameters[0] }}.</view>
+                          <view class="txt">{{  goodItem.parameters[1]  }} </view>
+                          <view class="price_con">
+                            <span class="unit">￥</span>
+                            <span class="price"> {{ goodItem.supplierPrice }} </span> 
+                            <span> X{{ goodItem.num }} </span>
+                          </view>
+                      </view>
+                </view>
+            </view>
+            <view class="remark">备注: {{ orderItem.remark?orderItem.remark:"--" }} </view>
+            <view class="mch_name"> {{ orderItem.mchName }} </view>
+              <view class="total_con">共{{ orderItem.goodCount }}件合计: <span class="unit">￥</span>
+                 <span class="sub_total"> {{  orderItem.orderTotalMoney}} </span>
+              </view>
+        </view>
+    </view>
+</view>

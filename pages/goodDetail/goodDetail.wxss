@@ -1,0 +1,534 @@
+.good_detail_page {
+    
+}
+
+.swiper_con{
+
+  height: 500rpx;
+  position: relative;
+}
+.swiper_con .count_con{
+    width: 100rpx;
+    height: 40rpx;
+
+    line-height: 40rpx;
+    background-color: #D9D9D9;
+    position: absolute;
+    right: 0;
+    bottom: 29rpx;
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+    font-size: 20rpx;
+    text-align: center;
+    overflow: hidden;
+}
+.swiper_con .count_con .count{
+     font-size: 28rpx;
+}
+.swiper_con_slider{
+  height: 500rpx; 
+}
+.banner_img{
+    display: block;
+    width: 750rpx;
+    height: 500rpx;
+}
+
+ .intro_con{
+     padding: 40rpx 32rpx 0;
+  }
+
+  .intro_con .price_con{
+     height: 62rpx;
+     color: #E61D38;
+     font-size: 28rpx;
+     overflow: hidden;
+     font-weight: bold;
+ }
+
+ .intro_con .price_con .price_c{
+     float: left;
+ }
+ .intro_con .price{
+     font-size: 48rpx;
+ }
+ .intro_con .price_icon{
+     width:60rpx;
+     height: 28rpx;
+ }
+
+ .intro_con  .small_price{
+     color: #666;
+     float: left;
+     margin-left: 12rpx;
+     position: relative;
+     top: 25rpx;
+ }
+
+ .intro_con .title{
+     font-size: 32rpx;
+     color: #000;
+     font-weight: bold;
+     margin-top: 14rpx;
+ }
+ 
+ .intro_con .code{
+     height: 29rpx;
+     line-height: 29rpx;
+     margin-top: 12rpx;
+     font-size: 24rpx;
+ }
+ .intro_con .copy{
+  width: 32rpx;
+  height: 32rpx;
+  position: relative;
+  top: 10rpx;
+  margin-left: 20rpx;
+}
+ .intro_con  .select_list{
+     height: 34rpx;
+     margin: 35rpx 0 17rpx;
+     padding: 0 33rpx;
+     font-size: 24rpx;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+ }
+ .select_list .item .img{
+     width: 28rpx;
+     height: 28rpx;
+     position: relative;
+     top: 5rpx;
+     margin-right: 12rpx;
+ }
+ .select_good_con {
+     height:88rpx;
+     border-top:10rpx solid #f5f5f5 ;
+     border-bottom:10rpx solid #f5f5f5 ;
+     padding:0 32rpx;
+  }
+ .select_good_con .tit{
+     font-size: 28rpx;
+     float: left;
+     font-weight: bold;
+     height:88rpx;
+     line-height: 88rpx;
+ }
+ .select_good_con .right_btn{
+     width: 32rpx;
+     height: 32rpx;
+     margin-top: 28rpx;
+     float: right;
+ }
+ .select_good_con .txt{
+     max-width:540rpx ;
+     height: 88rpx;
+     float: right;
+     font-size:24rpx;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     word-break:keep-all;
+ }
+ .select_good_con .txt text{
+   text-align:right;
+ }
+
+
+
+
+
+ .mch_name{
+     margin-top: 20rpx;
+     font-size: 32rpx ;
+
+     font-weight: bold;
+     
+     padding-bottom: 20rpx;
+ }
+ .brand_con{
+     overflow: hidden;
+     padding: 0 32rpx;
+     border-bottom: 20rpx solid #f5f5f5;
+ }
+
+ .brand_con .title_con{
+     width: 200rpx;
+     height: 108rpx;
+     float: left;
+ }
+ 
+ .brand_con .title_con .tit{
+      height: 40rpx;
+      line-height: 40rpx;
+      overflow: hidden;
+      font-size: 28rpx;
+      font-weight: bold;
+      margin-top: 16rpx;
+ }
+ .brand_con .title_con .txt{
+      height: 34rpx;
+      line-height: 34rpx;
+      font-size: 24rpx;
+      overflow: hidden;
+      margin-top: 4rpx;
+      color: #E61D38;
+ }
+ .brand_con .right_btn{
+      width:34rpx ;
+      height: 34rpx;    
+      float: right;
+      margin-top: 37rpx;
+ }
+ .brand_txt{
+      float: right;
+      height: 108rpx;
+      line-height: 108rpx;
+      font-size: 28rpx;
+ }
+ .detail_con {
+       overflow: hidden;
+       border-bottom: 20px solid #f5f5f5;
+ }
+ .big_titlr_con{
+       height: 80rpx;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       padding:0 32rpx;
+       background: #fff;
+ }
+ .big_titlr_con .tit {
+      font-size: 30rpx;
+      font-weight: bold;
+      border-left: 4px solid #333;
+      padding-left: 20rpx;  
+ }
+ .detail_con .img{
+     display: block;
+     width: 750rpx;
+ }
+ .good_info_con{
+     overflow: hidden;
+ }
+ .info_list{
+     font-size: 24rpx;
+     padding-bottom: 40rpx;
+ }
+ .info_list .item{
+     display: flex;
+     padding:0 32rpx;
+     flex-direction: row;
+     margin-top: 10rpx;
+}
+.info_list .item .tit{
+     width: 140rpx;
+     height: 40rpx;
+}
+.info_list .item .txt{
+     width: 540rpx;
+     line-height: 40rpx;
+}
+.same_good_con {
+     overflow: hidden;
+     background: #f5f5f5;
+}
+.good_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  padding: 0 29rpx;
+  justify-content: space-between;
+  padding-bottom: 178rpx;
+}
+.good{
+  width: 336rpx;
+  margin-top: 20rpx; 
+  background: #fff;
+}
+.good .img{
+  display: block;
+  width: 336rpx;
+  height: 224rpx;
+}
+.good .good_info{
+  overflow: hidden;
+  background: #fff;
+  padding: 20rpx;
+}
+.good .price_con {
+  height: 53rpx;
+  color: #E61D38;
+  display: flex;
+}
+.good .price_con  .unit{
+  position: relative;
+  top:8rpx;
+}
+.good .price{
+ font-size: 40rpx;
+}
+.good .small_price{
+ color:#999 ;
+ margin-left: 10rpx;
+ font-size: 24rpx;
+ position: relative;
+ top: 15rpx;
+}
+.good .title{
+ height: 40rpx;
+ font-size: 28rpx;
+ color: #333;
+}
+.good .txt{
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+}
+.same_good_con .big_titlr_con{
+    background: #f5f5f5;
+    margin-top: 10rpx;
+}
+.add_cart_con {
+  width: 750rpx;
+  height: 98rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 40rpx;
+  padding-bottom:  constant(safe-area-inset-bottom);
+  padding-bottom:  env(safe-area-inset-bottom);  
+}
+.add_cart_con .icon_con{
+    width: 350rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.add_cart_con .add_btn{
+    width: 400rpx;
+    line-height: 98rpx;
+    text-align: center;
+    color: #fff;
+    font-size:32rpx;
+    overflow: hidden;
+    background:#000 ;
+}
+.add_cart_con .icon_con .item{
+    width: 75rpx;
+    font-size: 24rpx;
+    text-align: center;
+    position: relative;
+}
+.add_cart_con .icon_con .item .img{
+    width: 48rpx;
+    height: 48rpx;
+    margin-top: 7rpx;
+}
+.add_cart_con .icon_con .item .count {
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 24rpx;
+    background: #E61D38;
+    position: absolute;
+    right: -9rpx;
+    top: 5rpx;
+    overflow: hidden;   
+    border-radius: 40rpx;
+    color: #fff;
+}
+
+.dialog {
+    width: 750rpx;
+    transition: transform 0.3s;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: translateY(100%); 
+}
+
+.dialog.show_on{
+     transform: translateY(0); 
+}
+
+.dialog  .shadow{
+     width: 750rpx;
+     position: absolute;
+     left: 0;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #000;
+     opacity: 0.5;
+     z-index: 1;
+}
+.dialog .content{
+     width: 750rpx;
+     height: 1090rpx;
+     background: #fff;
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     z-index: 2;
+}
+.dialog .good_info{
+    overflow: hidden;
+    margin: 24rpx 32rpx 20rpx;
+    position: relative;
+}
+.dialog .good_info .close_btn{
+     width: 40rpx;
+     height: 40rpx;
+     position: absolute;
+     right: 0;
+     top: 0;
+     z-index: 1;
+}
+.dialog .good_info .good_img{
+    width: 272rpx;
+    height: 180rpx;
+    float: left;
+}
+
+.dialog .info_con{
+     float: right;
+     width: 392rpx;
+}
+.dialog .good_info .price_con{
+      height: 62rpx;
+      line-height: 62rpx;
+      color: #E61D38;
+      font-size: 28rpx;
+      overflow: hidden;
+      font-weight: bold;
+}
+.dialog .good_info .price_con .price{
+      font-size: 48rpx;
+}
+.dialog .good_info .price_con .small_price {
+      margin-left: 15rpx;
+      color: #666;
+}
+.dialog .good_info  .title{
+      font-size: 28rpx;
+      font-weight: bold;  
+}
+.dialog .good_info .code_con{
+       overflow: hidden;
+       color: #666;
+}
+.dialog .good_info .code_con .code {
+      width: 262rpx;
+      font-size: 24rpx;
+      float: left;
+}
+.dialog .good_info .code_con .copy{
+    width: 32rpx;
+    height: 32rpx;
+    position: relative;
+    top: 0rpx;
+    margin-left: 20rpx;
+}
+.size_con{
+    height: 710rpx;
+}
+.size_con .tit{
+    font-size: 28rpx;
+    font-weight: bold;
+    line-height: 48rpx;
+    margin: 0 32rpx;
+    overflow: hidden;
+}
+.size_con .list {
+    margin: 20rpx 32rpx 50rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.size_con .list  .item{
+    height: 65rpx;
+    line-height: 65rpx;
+    font-size: 24rpx;
+    margin-right: 15rpx;
+    margin-bottom: 15rpx;
+    border: 1px solid #000;
+    padding: 0 20rpx;
+}
+.size_con .list  .item.on{
+  background: rgba(0, 0, 0, 0.1);
+}
+.size_con .list  .item.disable{
+   background: gray;
+}
+.size_con  .ti{
+     float: left;
+}
+.size_con .btn{
+    width: 48rpx;
+    height: 48rpx;
+    border: 1px solid #e1e1e1;
+    text-align: center;
+    float: right;
+    font-size: 32rpx;
+}
+.size_con .count{
+     display: block;
+     width: 80rpx;
+     height: 48rpx;
+     line-height: 48rpx;
+     float: right;
+     text-align: center;
+     border-top: 1px solid #e1e1e1;
+     border-bottom: 1px solid #e1e1e1;
+}
+.size_con .count_con{
+      padding-bottom: 100rpx;
+}
+.dialog .operate_con{
+     width: 750rpx;
+     height: 98rpx;
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     display: flex;
+     flex-direction: row;
+}
+.dialog .operate_con .btn{
+      text-align: center;
+      height: 98rpx;
+      line-height: 98rpx;
+      font-size: 32rpx;
+}
+.dialog .operate_con .cart_btn{
+     width: 375rpx;
+     background: #f0f0f0;
+}
+.dialog .operate_con .buy_btnn {
+     width: 400rpx;
+     background:#000 ;
+     color: #fff;
+}
+.dialog .confirm_btn{
+  width: 750rpx;
+  line-height: 98rpx;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 32rpx;
+}
+
+

@@ -1,0 +1,42 @@
+<wxs src="../../wxs/filter.wxs" module="filter" />
+<view class="order_page">
+    <scroll-view class="nav_list_con" scroll-x="true">
+        <view class="nav_list">
+        
+            <view class="{{currentIndex==item.id?'item on':'item'}}" wx:for="{{ tableNavArr }}" wx:key="index" data-index="{{index}}" bind:tap="selectNavFn">{{ item.title }} </view>
+        </view>
+    </scroll-view>
+
+    <view class="order_list"> 
+        <navigator class="order" url="/pages/orderDetail/orderDetail?id={{ item.orderParentNo }}&&estimatedDeliveryTime={{ item.estimatedDeliveryTime }}&&realDeliveryTime={{ item.realDeliveryTime }}" wx:for="{{ orderArr }}" wx:key="index">
+            <view class="top_title">
+                <span class="order_number">订单编号: {{ item.orderParentNo }}</span>
+                <span class="status">{{ filter.filterStatusFn(item.status) }} </span>
+            </view>
+
+            <scroll-view class="good_list_con" scroll-x="true">
+                <view class="good_list">
+                       <view class="good" wx:for="{{ item.products }}" wx:key="index" wx:for-item="goodItem" wx:for-index="i">
+                           <image src="{{ goodItem.imgUrl }}" class="good_img"></image>
+                           <view class="count">X{{ goodItem.num }}</view>
+
+                           <view class="shadow" hidden="{{ !(i>=3 && i== item.products.length -1) }}">查看更多</view>
+                       </view>
+                </view>
+            </scroll-view>
+
+            <view class="total_con">
+               <span>客户信息: {{ item.name }}</span>
+               <span>
+                   共{{ item.num }}件合计:
+                   <span class="unit">￥</span>
+                   <span class="price">{{ item.oldTotalPrice }}</span> 
+              </span>
+            </view>
+        </navigator>
+    </view>
+
+
+    <image src="{{ emptyImg }}" class="empty_img" hidden="{{ orderArr.length != 0 }}"></image>
+    <view class="title_msg"  hidden="{{ orderArr.length != 0 }}"> 没有订单 </view>
+</view>

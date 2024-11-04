@@ -1,0 +1,74 @@
+{
+  "pages": [
+ 
+
+    "pages/index/index",
+    "pages/numberlogin/numberlogin",
+    "pages/productroom/productroom",
+    "pages/productroomSearch/productroomSearch",
+    "pages/seriesSearch/seriesSearch",
+    "pages/people/people",
+    "pages/cart/cart",
+    "pages/confirmCart/confirmCart",
+    "pages/goodDetail/goodDetail",
+    "pages/address/address",
+    "pages/pay/pay",
+ 
+    "pages/login/login",
+
+    "pages/agreement/agreement",
+
+    "pages/agreement4/agreement4",
+    "pages/payOver/payOver",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail"
+  ],
+  "tabBar": {
+      "color": "#000",
+      "selectedColor": "#000",
+      "borderStyle": "black",
+
+      "list": [
+          {
+              "text": "首页",
+              "pagePath": "pages/index/index",
+              "iconPath": "/public/icon/index.png",
+           
+              "selectedIconPath": "/public/icon/index_on.png"
+          },
+          {
+           
+            "text": "产品仓",
+              "pagePath": "pages/productroom/productroom",
+              "iconPath": "/public/icon/product_room.png",
+
+              "selectedIconPath": "/public/icon/product_room_on.png"
+          },
+          {
+              "text": "购物车",
+              "pagePath": "pages/cart/cart",
+            
+              "iconPath": "/public/icon/cart.png",
+            
+            
+              "selectedIconPath": "/public/icon/cart_on.png"
+          },
+          {
+              "text": "个人中心",  
+              "pagePath": "pages/people/people",
+              "iconPath": "/public/icon/people.png",
+              
+              "selectedIconPath": "/public/icon/people_on.png"
+          }
+      ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,118 @@
+<view class="confirm_cart_page">
+    <navigator class="select_address_con" url="/pages/address/address">
+        <view class="address_con" >
+            <image src="{{ dropletIcon }}" class="droplet_icon"></image>
+            <view class="address_text" hidden="{{ resiveGoodInfo }}">
+                <view class="add_txt">添加收货地址</view>
+            </view>
+
+            <view class="address_text" hidden="{{ !resiveGoodInfo }}">
+                <view class="address">
+                    {{ resiveGoodInfo.region[0] }} 
+                    {{ resiveGoodInfo.region[1] }} 
+                    {{ resiveGoodInfo.region[2] }}
+                    {{ resiveGoodInfo.detailAddress }}
+                </view>
+                <view class="user_info">
+                   <span>{{ resiveGoodInfo.uName }}</span> 
+                   <span>{{ resiveGoodInfo.phone }}</span>
+                </view>
+            </view>
+      
+        </view>
+        <image src="{{ rightIcon }}" class="right_btn"></image>
+    </navigator>
+
+    <view class="good_list_con">
+        <view class="title" bind:tap="showGoodListFn">
+          
+            <span class="tit">商品清单</span>
+            <image src="{{ rightIcon }}" class="right_btn"></image>
+            <span class="txt">查看全部</span>
+        </view>
+        <view class="good_list">
+            <view class="good" wx:for="{{ goodShotArr }}" wx:key="index">
+               <image src="{{ item.imgurl }}" class="good_img"></image>
+               <view class="count">X{{ item.goods_num }}</view>
+            </view>
+        </view>
+    </view>
+    <view class="order_info_con">
+        <view class="title">价格明细</view>
+        <view class="item" bind:tap="showRemarkListFn">
+            <view class="tit">订单备注</view>
+            <view class="text_con">
+                 <span class="txt">添加备注</span> 
+                 <image src="{{rightIcon}}" class="right_btn"></image>
+            </view>
+        </view>
+        <view class="item">
+            <view class="tit">商品总额</view>
+            <view class="text_con">¥{{ orderInfo.totalPrice }}</view>
+        </view>
+        <!-- <view class="item">
+            <view class="tit">总税费</view>
+            <view class="text_con">¥{{ orderInfo.taxation }}</view>
+        </view> -->
+        <view class="item">
+            <view class="tit">商品总件数</view>
+            <view class="text_con">共{{ totalCount }}件</view>
+        </view>
+
+        <view class="item">
+            <view class="tit">期望发货时间</view>
+            <view class="text_con">
+                 <picker class="picker_date" mode="date" value="{{expectedDeliveryTime}}"        
+                 bindchange="bindDateChange">
+                    <view class="picker">  {{expectedDeliveryTime}} </view>
+                  </picker>
+                 <image src="{{rightIcon}}" class="right_btn"></image>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="total_bottom">
+        <view class="total_con">
+            <view class="title">
+                 应付总额:
+                 <span class="unit">￥</span>
+                 <span class="total">{{ orderInfo.totalPrice }}</span>
+            </view>
+        </view>
+        <view url="/pages/pay/pay" class="sub_btn" bind:tap="payOrderFn">提交订单</view>
+    </view>
+
+    <view class="{{showGoodListFlag?'dialog_con show':'dialog_con'}}">
+        <view class="shadow"></view>
+        <view class="content">
+            <view class="top_title" bind:tap="closeGoodListDialogFn">
+                <span>商品清单</span>
+                <image src="{{ closeIcon }}" class="close_btn"></image>
+            </view>
+            <scroll-view class="good_list" scroll-y="true">
+
+                 <v-good wx:for="{{ selectGoodArr }}" goodItem="{{ item }}" index="{{ index }}" supplyPriceStatus="{{ supplyPriceStatus }}" roleId="{{ roleId }}" wx:key="index" ></v-good>
+            
+            </scroll-view>
+        </view>
+    </view>
+
+    <view class="{{showRemarkListFlag?'dialog_con show':'dialog_con'}}">
+        <view class="shadow"></view>
+        <view class="content">
+            <view class="top_title" bind:tap="closeGoodListDialogFn">
+                <span>订单备注</span>
+           
+                <image src="{{ closeIcon }}" class="close_btn"></image>
+            </view>
+
+            <scroll-view class="shop_list" scroll-y="true">
+                 <v-shop wx:for="{{ orders }}" wx:key="index" orderItem="{{ item }}" orderIndex="{{ index }}" bind:remarkFn="remarkFn"></v-shop>
+                 
+            </scroll-view>
+            <view class="confirm_btn" bind:tap="closeGoodListDialogFn">确定</view>
+        </view>
+    </view>
+    
+</view>

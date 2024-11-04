@@ -1,0 +1,228 @@
+page {
+  background: #fafafa;
+}
+
+.info_list {
+   
+     padding-bottom: 20rpx;
+}
+.info_list  .info_con {
+    margin:20rpx 32rpx 0;
+    background: #fff;
+ 
+    padding:0 29rpx;
+    font-size: 28rpx;
+
+    color: #333;
+ 
+}
+
+
+
+
+.info_list  .info_con  .title {
+    height: 88rpx;
+
+    line-height: 88rpx;
+    font-size: 28rpx;
+    font-weight: bold; 
+ 
+}
+.info_list  .info_con .item{
+    display: flex;
+     
+ 
+
+    flex-direction:row;
+
+
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ 
+}
+
+.info_list  .info_con .item .tit{
+ 
+  line-height: 88rpx;
+
+  color:#999;
+}
+ 
+.info_list  .info_con .item .address_txt{
+    width: 470rpx;
+}
+.order_status_con {
+  
+    background: #fff;
+    
+    margin:  20rpx 0;
+    padding-bottom: 40rpx;
+}
+.order_status_con .status_item{
+
+
+   
+     padding-left: 40rpx;
+     position: relative;
+     overflow: hidden;
+     padding-bottom: 15rpx;
+}
+.order_status_con .status_item .tit{
+     overflow: hidden;
+     font-size: 28rpx;
+ 
+     color: #333;
+}
+.order_status_con .status_item  .time{
+     font-size: 24rpx;
+     margin-top: 10rpx;
+     color: #666;
+}
+.order_status_con .status_item  .circle_icon{
+     width: 20rpx;
+     height: 20rpx;
+
+     border-radius: 20rpx;
+     background-color: #333;
+     position: absolute;
+     left: 10rpx;
+     top:10rpx;
+     z-index: 2;
+}
+.order_status_con .status_item  .line{
+    height: 100%;
+    width: 0;
+    border-left: 1px  solid #D9D9D9;
+
+    position: absolute;
+    left: 17rpx;
+    top: 0;
+    z-index: 1;
+}
+.order_status_con .status_item:first-child  .line{
+
+    top: 10rpx;
+}
+.order_list_con {
+    overflow: hidden;
+    margin:0 32rpx;
+    padding-bottom: 50rpx;
+ 
+}
+.order{
+    
+ 
+    background: #fff;
+
+    margin-bottom: 20rpx;
+ 
+}
+
+.order .order_title{
+    height: 80rpx;
+    padding:0 29rpx;
+    font-size: 26rpx;
+    color: #999;
+
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;  
+}
+.order .order_title .order_number{
+    color: #666;
+}
+.order .order_title .status {
+    color: #333;
+    font-size:28rpx;
+}
+.order .good{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 29rpx;
+    overflow: hidden;
+}
+.order .good .good_img{
+ 
+    width: 244rpx;
+    height: 160rpx;
+ 
+}
+.order .good .good_img .img{
+    display: block;
+
+    width: 244rpx;
+    
+    height: 160rpx;
+}
+.order .good .info{
+    width: 355rpx;
+    font-size: 28rpx;
+}
+.order .good .info .title{
+  height: 40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 12rpx;
+  color: #333;
+}
+.order .good .info .txt{
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 5rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    overflow: hidden;
+
+
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.order .good .info .price_con {
+    height:42rpx;
+    color: #333;
+    font-size: 28rpx;
+}
+.order .good .info .price_con .price{
+    font-size: 32rpx;
+    font-weight: bold;
+
+    margin-right: 10rpx;
+}
+.order .good .info .price_con .unit{
+     font-size: 24rpx;
+}
+
+.order  .remark{
+     font-size: 26rpx;
+     margin:20rpx 0;
+     color: #666;
+     padding:0 29rpx;
+}
+.order .mch_name{
+    margin:20rpx 0;
+    font-size: 26rpx;
+    font-weight: bold;
+    padding:0 29rpx;
+}
+.order   .total_con{
+     font-size: 28rpx;
+     overflow: hidden;
+     color: #666;
+     text-align: right;
+     padding:0 29rpx 20rpx;
+}
+.order  .total_con .unit{
+   color: #333;
+}
+.order  .total_con .sub_total {
+      font-size: 36rpx;
+      color: #333;
+      font-weight: bold;
+}

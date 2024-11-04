@@ -1,0 +1,75 @@
+<view class="productroomSearch">   
+  <view class="top_con"> 
+      <view class="search_con">
+          <image src="{{ searchSrc }}" class="search_btn"></image>
+          <input value="{{ brandName }}" class="search" auto-focus="{{ false }}" placeholder="搜索" />
+      </view>
+
+      <view class="filter_con">
+          <view class="item" bind:tap="getGoodListFn">综合</view>
+          <view class="item">
+              <span>销量</span>
+              <image src="{{ priceUp }}" class="img_icon"></image>
+          </view>
+          <view class="item">
+                <span>价格</span>
+                <image src="{{ priceUp }}" class="img_icon"></image>
+          </view>
+          <view class="item">
+              <span>筛选</span>
+              <image src="{{ screenIcon }}" class="img_icon"></image>
+          </view>
+      </view>
+   </view>
+
+   <view class="good_list">    
+       <navigator class="good" wx:for="{{ goodArr }}" wx:key="index" hover-class="none" url="/pages/goodDetail/goodDetail?id={{ item.id }}">
+          <image src="{{ item.coverImg }}" class="img"></image>
+          <view class="good_info">
+              <view class="price_con">
+                <view class="unit">￥</view>
+                <view class="price">{{ item.price }}</view>
+                <view class="small_price" hidden="{{ !supplyPriceStatus }}">￥{{ item.discountPrice }}</view>
+              </view>
+              <view class="title">{{ item.styleName }} | {{  item.categoryName }}</view>
+              <view class="txt"> {{ item.product_title }} </view>
+
+          </view>
+
+
+       </navigator>
+   </view>
+   
+
+   <image src="{{ emptyImg }}" class="empty_img" hidden="{{ goodArr.length !== 0 }}"></image>
+   
+   
+   <!-- <view hidden="{{ !emptyFlag }}" class="no_data">没有更多数据</view> -->
+   <view class="dialog_con">
+       <view class="select_content">
+           <view class="title">
+               <span>风格</span>
+           </view>
+           <view class="style_list">
+               <view class="item">极简</view>
+               <view class="item on">轻奢</view>
+               <view class="item">奶油</view>
+               <view class="item">中古</view>
+               <view class="item">侘寂</view>
+               <view class="item">混搭</view>
+           </view>
+
+           <view class="title">
+               <span>价格</span>
+               <span class="txt">已选: 1500-4000</span>
+           </view>
+
+           <view class="slider_con"></view>
+           <view class="price_con">
+                <input type="text" class="put_val" placeholder="最低价"/>
+                <view class="line"></view>
+                <input type="text" class="put_val" placeholder="最高价"/>
+           </view>
+       </view>
+   </view>
+</view>

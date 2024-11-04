@@ -1,0 +1,24 @@
+<view class="good">
+    <view class="good_img">
+        <image src="{{ goodItem.imgurl }}" class="img"></image>
+    </view>
+    <view class="good_info">
+    
+        <view class="title">{{ goodItem.product_title }}</view>
+        <view class="text">材质: {{goodItem.skuName }}</view>
+        <view class="text">规格: 双扶手三人位-2850*980*6...</view>
+        <view class="price" wx:if="{{ roleId }}">
+            ¥{{ roleId?goodItem.discountPrice:goodItem.price }} <span class="count">X{{ goodItem.goods_num }}</span>
+        </view>
+
+        <view class="price" wx:else>
+            ¥{{ supplyPriceStatus?goodItem.discountPrice:goodItem.price }} <span class="count">X{{ goodItem.goods_num }}</span>
+       
+        </view>
+        <!-- <view class="small_price" hidden="{{ !roleId }}" wx:if="{{ roleId }}">{{  goodItem.discountPrice }}</view> -->
+        <view class="total_con">共{{ goodItem.goods_num }}件合计:
+            <span class="unit">￥</span>
+            <span class="sub_total">{{ supplyPriceStatus?(goodItem.discountPrice * goodItem.goods_num):(goodItem.price* goodItem.goods_num)  }}</span>
+        </view>
+    </view>
+</view>

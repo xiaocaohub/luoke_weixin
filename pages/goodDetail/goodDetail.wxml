@@ -1,0 +1,246 @@
+<view class="good_detail_page">
+     <view class="swiper_con">
+          <swiper  class="swiper_con_slider" indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{ current }}" bindchange="sliderFn">
+            <block wx:for="{{ currentGood?currentGood.imgArr:goodFirst.imgArr }}" wx:key="*this">
+
+              <swiper-item class="banner_item">
+                 <image src="{{ item }}" class="banner_img"></image>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class="count_con"><span class="count">{{ current + 1 }}</span>/{{ currentGood?currentGood.imgArr.length:goodFirst.imgArr.length  }}</view>
+     </view>
+
+    <view class="intro_con" bind:tap="getGoodInfoFn">
+
+        <view class="price_con">
+          <view class="price_c"> 
+            ￥<span class="price">{{ goodFirst.price }}</span>
+            <image src="{{ priceImg }}" class="price_icon"></image>
+          </view>
+          <view class="small_price" hidden="{{ !supplyPriceStatus }}">￥{{ goodFirst.discountPrice }}</view>
+        </view>
+
+        <view class="title"> {{ goodInfo.productName }}  </view>
+
+        <view class="code" bind:tap="viewCopyTextClick">
+            <span>{{ currentGood?currentGood.productCode: goodFirst.productCode }}</span>
+            <image src="{{ copyIcon }}" mode="" class="copy"/>
+        </view>
+        <!-- <view class="select_list">
+            <view class="item">
+                <image src="{{ selectIcon }}" class="img"></image>
+                极速响应
+            </view>
+            <view class="item">
+                <image src="{{ selectIcon }}" class="img"></image>
+                一年质保
+            </view>
+            <view class="item">
+                <image src="{{ selectIcon }}" class="img"></image>
+                无忧质保
+            </view>
+        </view> -->
+
+        <view class="mch_name">{{ mchName }}</view>
+    </view>
+
+
+    <view class="select_good_con" bind:tap="showDialogFn" data-index="0">
+        <view class="tit">已选</view> 
+        <image src="{{ chevronRight }}" class="right_btn" ></image>
+
+        <view class="txt">
+           <text>{{ goodFirst.name }} </text> 
+        </view>
+     </view>
+
+
+    <view class="brand_con">
+        <view class="title_con">
+            <view class="tit">原创系列</view>
+        
+            <view class="txt">在售商品66款</view>
+        </view>
+        
+
+        <view class="brand_txt">
+            <navigator url="/pages/seriesSearch/seriesSearch?id={{ goodInfo.product.brandId }}" hover-class="none"> 进入系列 </navigator>
+            <image src="{{ chevronRight }}" class="right_btn"></image>
+        </view>
+    </view>
+
+    <view class="detail_con">
+        <view class="big_titlr_con">
+            <view class="tit">商品详情</view>
+            
+        </view>
+        <view class="detail">
+            <image src="{{ detailImg }}" class="img"></image>
+        </view>
+    </view>
+
+    <view class="good_info_con">
+        <view class="big_titlr_con">
+            <view class="tit">商品信息</view>
+        </view>
+
+        <view class="info_list">
+            <view class="item">
+                <view class="tit">分类</view>
+                <view class="txt">沙发</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">风格</view>
+                <view class="txt">极简</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">型号</view>
+                <view class="txt">LKS8825-E1.4*2</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">体积</view>
+                <view class="txt">2.4（m³）</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">包件数</view>
+                <view class="txt">2</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">软硬度</view>
+                <view class="txt">适中</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">坐高</view>
+                <view class="txt">400mm</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">坐深</view>
+                <view class="txt">400mm</view>
+            </view>
+
+            <view class="item">
+                <view class="tit">沙发脚高</view>
+                <view class="txt">40mm</view>
+
+
+            </view>
+
+
+            <view class="item">
+                <view class="tit">面料</view>
+                <view class="txt">头层牛皮/仿皮</view>
+            </view>
+
+
+
+
+
+            <view class="item">
+                <view class="tit">填充物</view>
+                <view class="txt">55密度太空海棉+50密度高弹海绵+白鹅绒 55密度太空海棉55密度太空海棉55密度太空海棉55密度太空海棉</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="same_good_con">
+       <view class="big_titlr_con">
+
+            <view class="tit" bind:tap="getSameGoodFn">同类推荐</view>
+        </view>
+        <view class="good_list">
+
+             <navigator class="good" wx:for="{{ sameGoodArr }}" wx:key="index" hover-class="none" url="/pages/goodDetail/goodDetail?id={{ item.id }}">
+               <image src="{{ item.goodsImg }}" class="img"></image>
+               <view class="good_info">
+                    <view class="price_con">
+                        <view class="unit">￥</view>
+
+                        <view class="price">{{ item.price }}</view>
+                        <view class="small_price" hidden="{{ !roleId }}" wx:if="{{ roleId }}">￥{{ item.discountPrice }}</view>
+                        <view class="small_price" hidden="{{ !supplyPriceStatus }}" wx:else>￥{{ item.discountPrice }}</view>
+                    </view>
+                    <view class="title">极简｜沙发</view>
+                    <view class="txt"> {{ item.product_title }} </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+
+    <view class="add_cart_con">
+        <view class="icon_con">
+            <view class="item">
+                <image src="{{ collapseIcon }}" class="img"></image>
+                <view>收藏</view>
+            </view>
+            <navigator class="item" url="/pages/cart/cart" open-type="switchTab">
+                <image src="{{ shoppingIcon }}" class="img"></image>
+                <view>购物车</view>
+                <view class="count" hidden="{{ goodArr.length == 0}}">{{ goodArr.length }}</view>
+            </navigator>
+        </view>
+        <view class="add_btn" bind:tap="showDialogFn" data-index="1">加入购物车</view>
+    </view>
+
+    <!-- <view class="dialog"  area-role="dialog" aria-modal="true" hidden="{{ !showDialog }}"> -->
+      <view class="{{showDialog?'dialog show_on':'dialog'}}"  area-role="dialog" aria-modal="true" >
+        <view class="shadow" catchtouchmove="return"></view>
+        <view class="content" catchtouchmove="return">
+             <view class="good_info">
+                 <image src="{{ closeIcon }}" class="close_btn" bind:tap="closeDialogFn"></image>
+                 <image class="good_img" src="{{ currentGood?currentGood.imgArr[0]: goodFirst.imgArr[0] }}"></image>
+                 <view class="info_con">
+                     <view class="price_con">
+                         ￥<span class="price">{{ currentGood?currentGood.price: goodFirst.price }}</span> 
+                         <span class="small_price">￥{{ currentGood?currentGood.discountPrice: goodFirst.discountPrice }}</span>
+                     </view>
+                     <view class="title">{{ currentGood?currentGood.name: goodFirst.name }}</view>
+                     <view class="code_con">
+                          <view class="code">{{ currentGood?currentGood.productCode: goodFirst.productCode }}</view>
+                          <image src="{{ copyIcon }}" mode="" class="copy"/>
+                     </view>
+                 </view>
+             </view>
+
+             <scroll-view class="size_con" scroll-y="true">
+                 <view class="tit">材质</view>
+                 <view class="list">
+                     <view class="item {{currentColorIndex==index?'on':''}}" wx:for="{{ allColorArr }}" wx:key="index" data-index="{{ index }}"  data-item="{{ item }}" bind:tap="selectColorFn" hidden="{{ !item.showFlag }}">{{ item.attributeValue }}</view>
+
+                     <view class="item {{currentColorIndex==index?'on':''}} {{ item.showFlag?'':'disable' }}" wx:for="{{ allColorArr }}" wx:key="index" data-index="{{ index }}"  data-item="{{ item }}" hidden="{{ item.showFlag }}">{{ item.attributeValue }}</view>
+                 </view>
+
+                 <view class="tit">规格</view>
+
+                 <view class="list">
+                     <view class="item {{currentSizeIndex==index?'on':''}}" wx:for="{{ allSizeArr }}" wx:key="index" data-index="{{ index}}" data-item="{{ item }}" bind:tap="selectSizeFn" hidden="{{ !item.showFlag }}"> {{ item.attributeValue }} </view>   
+                     <view class="item {{currentSizeIndex==index?'on':''}} {{ item.showFlag?'':'disable' }}" wx:for="{{ allSizeArr }}" wx:key="index" data-index="{{ index}}" data-item="{{ item }}" hidden="{{ item.showFlag }}"> {{ item.attributeValue }} </view>  
+                 </view>
+
+                  <view class="tit count_con">
+                     <span class="ti">数量</span>
+                     <view class="btn" bind:tap="addCountFn">+</view>
+                     <input type='text' value="{{ count }}" class="count" bindinput="setCountFn"/>
+                     <view class="btn" bind:tap="reduceCountFn">-</view>
+                  </view>
+             </scroll-view>
+             <view class="operate_con" hidden="{{ btnFlag }}">
+                 <view class="btn cart_btn" bind:tap="addCartFn">加入购物车</view>
+                 
+                 <view class="btn buy_btnn" bind:tap="buyGoodFn">立即购买</view>
+             
+             
+             </view>
+             <view class="confirm_btn" hidden="{{ !btnFlag }}" bind:tap="addCartFn">确定</view>
+        </view>
+    </view>
+
+</view>

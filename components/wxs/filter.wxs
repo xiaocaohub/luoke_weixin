@@ -1,0 +1,33 @@
+function filterStatusFn (status) {
+
+      switch (status) {
+        case 0: 
+          return "已取消";
+          break;
+        case 1: 
+            return "待付款";
+            break;
+        case 2:
+            return "审核中";
+
+        case 3: 
+            
+            return "配货中";
+            break;
+        case 4: 
+
+            return "已发货";
+            break;
+        case 5: 
+            return "已完成";
+            break;
+        case 6:
+            
+            return "已退款";
+            break;
+    }
+}
+
+module.exports = {
+    filterStatusFn: filterStatusFn
+}

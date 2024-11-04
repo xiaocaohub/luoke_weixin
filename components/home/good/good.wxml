@@ -1,0 +1,9 @@
+<navigator class="good" url="/pages/goodDetail/goodDetail?id={{ goodItem.id }}" hover-class="none">
+    <view class="img_con">
+        <image src="{{ goodItem.coverImg }}" class="img" ></image>
+        
+        <view class="txt">{{ goodItem.product_title }}</view>
+
+        <view class="price">￥{{ goodItem.price }}</view>
+    </view>
+</navigator>

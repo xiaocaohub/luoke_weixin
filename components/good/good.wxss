@@ -1,0 +1,10 @@
+.good{
+    width:336rpx;
+    height:224rpx;
+
+    line-height: 100px;
+
+    text-align: center;
+    border:1px solid brown;
+
+}

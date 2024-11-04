@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+
+     "good": "/components/home/good/good",
+
+     "hot-good": "/components/home/hotgood/hotgood"
+  }
+}

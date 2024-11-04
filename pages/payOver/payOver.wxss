@@ -1,0 +1,55 @@
+page{
+  background-color: #fafafa;    
+}
+.pay_over_page {
+    overflow: hidden;
+}
+.pay_over_page .title{
+    height: 60rpx;
+    margin-top: 120rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.pay_over_page .img{
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 20rpx;
+}
+.pay_over_page .order_number {
+
+ 
+    text-align: center;
+    color: #666;
+    font-size: 28rpx;
+    margin:29rpx 0 40rpx;
+}
+.pay_over_page .btn_group {
+    
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+  
+ 
+}
+
+
+
+.btn_group .btn{
+     width: 208rpx;
+     height: 68rpx;
+
+
+     line-height: 68rpx;
+     text-align: center;
+     font-size: 32rpx;
+     margin:0 40rpx;
+     border: 1px solid #1a1a1a;
+}
+.back_btn {
+     
+     background-color: #1a1a1a;
+     color: #fff;
+}

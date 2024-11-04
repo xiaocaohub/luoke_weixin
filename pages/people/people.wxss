@@ -1,0 +1,105 @@
+page{
+    background: #fafafa;
+}
+
+.banner_con{
+
+     background: url("https://luockoo.oss-cn-shenzhen.aliyuncs.com/file/my_bg.png ") no-repeat left top;
+     overflow: hidden;
+     background-size: cover;
+}
+.banner_con .header {
+     width:750rpx;
+     height: 50rpx;   
+     color: #fff;
+     text-align: center;
+     margin-top: 100rpx;
+}
+.user_info_con{
+    padding:40rpx 32rpx 84rpx;
+    display: flex;
+    flex-direction: row;
+    padding-top: 60rpx;
+}
+.user_info_con  .head_img{
+     width:120rpx;
+     height: 120rpx;
+}
+.user_info_con  .text_con {
+    width: 450rpx;
+    margin-left: 20rpx;
+}
+.user_info_con  .user_name {
+    height: 50rpx;
+    line-height: 50rpx;
+    overflow: hidden;
+    color: #fff;
+}
+.user_info_con  .login_out {
+     width: 40rpx;
+     height: 40rpx;
+     margin-left: 24rpx;
+     position: relative;
+     top:10rpx;
+}
+.user_info_con .phone_number {
+     height: 40rpx;
+     line-height: 40rpx;
+     color:#999;
+     overflow: hidden;
+     margin-top: 12rpx;
+}
+.people_page .content_con {
+     width: 686rpx;
+     margin: 0 auto;
+     position: relative;
+     top:-50rpx;
+     padding-bottom: 20rpx;
+     background: #fff;
+     margin-bottom: 20rpx;
+}
+.people_page .content_con  .big_title {
+     height: 88rpx;
+     line-height: 88rpx;
+     padding:0 30rpx;
+     font-weight: bold;
+     font-size: 30rpx;
+}
+
+.people_page .content_con  .big_title  .right_btn {
+     display: block;
+     width: 40rpx;
+     height: 40rpx;
+     float: right;
+     margin-top:25rpx;
+}
+.people_page .content_con  .big_title  .txt {
+     float: right;
+     color:#999;
+     font-weight: normal;
+}
+.people_page .content_con  .list {
+     margin-bottom: 20rpx;
+     display: flex;
+     display: flex;
+     flex-direction: row;
+     margin:30rpx 0 ;
+}
+
+.people_page .content_con  .list  .item{
+     width: 110rpx;
+     height: 100rpx;
+     font-size: 26rpx;
+     overflow: hidden;
+     color:#333;
+     margin: 0 31rpx;
+     text-align: center;
+}
+.people_page .content_con  .list  .icon_img {
+     display: block;
+     width: 68rpx;
+     height: 68rpx;
+     margin:0 auto;
+}
+
+

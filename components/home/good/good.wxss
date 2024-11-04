@@ -1,0 +1,42 @@
+.good{
+    width:336rpx;
+    height:336rpx;
+
+    overflow: hidden;
+
+ 
+    margin-bottom: 20rpx;
+}
+.good .img_con{
+     height: 224rpx;
+ 
+}
+
+.good .img_con .img{
+     display: block;
+
+     width: 100%;
+     height: 224rpx; 
+}
+.good .txt{
+     font-size: 24rpx;
+ 
+     height: 33rpx;
+
+     overflow: hidden;
+     margin:12rpx 8rpx 8rpx 16rpx;
+ 
+     text-overflow: ellipsis;
+     white-space: nowrap;
+}
+.good .price{
+     height: 40rpx;
+     line-height: 40rpx;
+ 
+     margin-left:16rpx;
+     margin-right: 8rpx;
+
+
+     overflow:hidden;
+}
+

@@ -1,0 +1,128 @@
+page{
+  padding-top: 88rpx;
+   background-color: #fafafa;
+}
+.top_total_con{
+    width: 750rpx;
+    height:88rpx;
+    line-height: 88rpx;
+    
+
+    font-size: 30rpx;
+    color: #1A1A1A;
+ 
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between ;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+}
+.top_total_con .good_count,
+.top_total_con .btn{
+     margin: 0 32rpx;
+}
+.good_list{
+     width: 750rpx;
+     position: fixed;
+     left: 0;
+     top: 108rpx;
+     right: 0;
+     bottom: 125rpx;
+     background-color: #fafafa;
+}
+
+
+
+
+.title_msg{
+     text-align: center;
+     font-size: 32rpx;
+}
+
+.bottom_total_con{
+     width: 750rpx;
+     height: 100rpx;
+     position: fixed;
+
+     left: 0;
+     bottom: 0;
+     background: #fff;
+     display: flex;
+     flex-direction: row;
+     justify-content:space-between ;
+}
+
+
+.bottom_total_con .total_con{
+     width:370rpx ;
+     height: 100rpx;
+     line-height: 100rpx;
+     margin-left: 32rpx;
+     font-size: 24rpx;
+     color: #1A1A1A;
+     overflow: hidden;
+}
+.bottom_total_con .total_con .select_all {
+     margin-right: 10rpx;
+}
+.bottom_total_con .total_con .select_all .img{
+    width: 32rpx;
+    height: 32rpx;
+    position: relative;
+    top: 7rpx;
+    margin-right: 8rpx;
+}
+.bottom_total_con .total_con .select_count{
+  color: #999;
+}
+.bottom_total_con  .total_money{
+   font-size: 40rpx;
+   color: #E61D38;
+}
+
+.bottom_total_con  .unit{
+    color: #E61D38;
+}
+.bottom_total_con .btn_group {
+     width: 320rpx;
+     height: 100rpx;
+ 
+     margin-right: 16rpx;
+     display: flex;
+     flex-direction: row; 
+     /* justify-content: space-between; */
+     justify-content: flex-end;
+     align-items: center;
+     font-size: 28rpx;
+}
+.bottom_total_con .btn_group  .btn{
+     width: 155rpx;
+     height: 64rpx;
+     line-height: 64rpx;
+     text-align: center;
+     border: 1px solid #1A1A1A;
+     margin-right: 16rpx;
+}
+.bottom_total_con  .buy_btn{
+    background: #000;
+    color: #fff;
+}
+
+
+.bottom_total_con .delete_btn{
+    width: 150rpx;
+    height: 64rpx;
+    line-height:  64rpx;
+    text-align: center;
+    margin-right: 32rpx;
+    margin-top: 18rpx;
+    border: 1px solid #1A1A1A;
+}
+
+.empty_img{
+    display: block;
+    margin:0100rpx auto;
+}

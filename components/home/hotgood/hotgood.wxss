@@ -1,0 +1,36 @@
+.hot_good{
+    width:272rpx;
+    min-height: 440rpx;
+
+ 
+
+    float: left;
+
+    margin-right: 16rpx;
+}
+.hot_good .img{
+    display: block;
+
+    width: 100%;
+}
+
+.hot_good .title{
+    height: 33rpx;
+    line-height: 33rpx;
+ 
+    font-size: 24rpx;
+    
+    margin-top: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+.hot_good .price{
+
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 32rpx;
+    margin-top:5rpx;
+    overflow: hidden;
+}

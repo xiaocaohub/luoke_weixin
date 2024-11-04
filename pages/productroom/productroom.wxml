@@ -1,0 +1,82 @@
+<view class="product_room_con">
+    <view class="menu_con">
+        <view class="item {{menuIndex==index?'on':''}}" wx:for="{{ menuArr }}" wx:key="*this" data-index="{{ index }}" data-item="{{ item }}" bind:tap="selectMenuFn"> {{ item.pname }} </view>  
+    </view>
+
+
+    <scroll-view class="good_content" 	scroll-into-view="{{ scrollIntoView }}" scroll-y="{{true}}" style="height:{{screenHeight}}px" scroll-with-animation="{{ true }}">
+        <view class="good_list_con" id="goodKind0">
+            <image src="{{ hotBannerImg }}" class="banner"></image>
+            <view class="good_list">
+                <navigator class="good" wx:for="{{ hotArr }}" wx:key="index" data-item="{{ item }}" url="/pages/productroomSearch/productroomSearch?topId={{ item.topId }}&&sid={{ item.sid }}&&cid={{ item.cid }}" hover-class="none">
+                    <image src="{{ item.img }}" class="img"></image>
+                    <view class="txt">{{ item.pname }}</view>
+                </navigator>
+            </view>
+        </view>
+
+        <view class="good_list_con" id="goodKind1">
+            <image src="{{ seriesBannerImg }}" class="banner"></image>
+            <view class="good_list">
+                <navigator class="brand_good" wx:for="{{ brandArr }}" wx:key="*this"  url="/pages/seriesSearch/seriesSearch?id={{ item.brand_id }}&&brandName={{ item.brand_name }}"> 
+                     <image src="{{ item.brand_pic }}" class="img"></image>
+                     <view class="text">
+                         <view class="title">{{ item.brand_name }}</view>
+                         <view class="mch_name">{{ item.mchName }}</view>
+                         <view class="txt">在售商品{{ item.goodsCount }}款</view>
+                     </view>
+                </navigator>
+            </view>
+        </view>
+
+        <view class="good_list_con" id="goodKind2">
+            <image src="{{ menuArr[2].img }}" class="banner"></image>
+            <view class="good_list">
+                <navigator class="good" wx:for="{{ roomKindArr }}" wx:key="index" data-item="{{ item }}" url="/pages/productroomSearch/productroomSearch?topId={{ item.topId }}&&sid={{ item.sid }}&&cid={{ item.cid }}" hover-class="none">
+                    <image src="{{ item.img }}" class="img"></image>
+                    <view class="txt">{{ item.pname }}</view>
+                </navigator> 
+            </view>
+        </view>
+
+        <view class="good_list_con" id="goodKind3">
+            <image src="{{ menuArr[3].img  }}" class="banner"></image>
+            <view class="good_list">
+                <navigator class="good" hover-class="none"  wx:for="{{ slipeKindArr }}" wx:key="index" data-item="{{ item }}" url="/pages/productroomSearch/productroomSearch?topId={{ item.topId }}&&sid={{ item.sid }}&&cid={{ item.cid }}">
+                    <image src="{{ item.img }}" class="img"></image>
+                    <view class="txt">{{ item.pname }}</view>
+                </navigator>
+            </view>
+        </view>
+
+        <view class="good_list_con" id="goodKind4">
+            <image src="{{ menuArr[4].img  }}" class="banner"></image>
+            <view class="good_list">
+                <navigator class="good" hover-class="none"  wx:for="{{ eatKindArr }}" wx:key="index" data-item="{{ item }}" url="/pages/productroomSearch/productroomSearch?topId={{ item.topId }}&&sid={{ item.sid }}&&cid={{ item.cid }}">
+                    <image src="{{ item.img }}" class="img"></image>
+                    <view class="txt">{{ item.pname }}</view>
+                </navigator>
+            </view>       
+        </view>
+
+        <view class="good_list_con" id="bookKind5">
+            <image src="{{ menuArr[5].img }}" class="banner" bind:tap="getRoomKindFn"></image>
+            <view class="good_list">
+                <navigator class="good" wx:for="{{ bookKindArr }}" wx:key="index" data-item="{{ item }}" url="/pages/productroomSearch/productroomSearch?topId={{ item.topId }}&&sid={{ item.sid }}&&cid={{ item.cid }}" hover-class="none">
+                    <image src="{{ item.img }}" class="img"></image>
+                    <view class="txt">{{ item.pname }}</view>
+                </navigator> 
+            </view>
+        </view>
+
+        <view class="good_list_con" id="goodKind6">
+            <image src="{{ menuArr[6].img }}" class="banner" bind:tap="getRoomKindFn"></image>
+            <view class="good_list">
+                <navigator class="good" wx:for="{{ childKindArr }}" wx:key="index" data-item="{{ item }}" url="/pages/productroomSearch/productroomSearch?topId={{ item.topId }}&&sid={{ item.sid }}&&cid={{ item.cid }}" hover-class="none">
+                    <image src="{{ item.img }}" class="img"></image>
+                    <view class="txt">{{ item.pname }}</view>
+                </navigator> 
+            </view>
+        </view>
+    </scroll-view>
+</view>

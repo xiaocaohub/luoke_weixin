@@ -1,0 +1,69 @@
+<view class="people_page">
+    <view class="banner_con">
+        <view class="header">我的</view>
+        <view class="user_info_con">
+            <image src="{{ headImg }}" class="head_img"></image>
+
+            <view class="text_con">
+                <view class="user_name">
+                    <span>{{ userInfo.user_name }}</span>
+                    <image src="{{ loginOutIcon }}" class="login_out" bind:tap="loginOutFn"></image>
+                </view>
+                <view class="phone_number">{{ userInfo.phone }}</view>
+            </view>
+        </view>
+    </view>
+    
+    <view class="content_con">
+        <view class="big_title" bind:tap="goDetailFn" data-id="all">
+            <span>我的订单</span>
+            <image src="{{ rightIcon }}" class="right_btn"></image>
+            <span class="txt">全部</span>
+        
+        </view>
+        <view class="list">
+            <view class="item"  bind:tap="goDetailFn" data-id="1" >
+            
+                <image src="{{ icon1 }}" class="icon_img"></image>
+                <span>待付款</span>
+            </view>
+
+            <view class="item"  bind:tap="goDetailFn" data-id="2" >
+                <image src="{{ icon2 }}" class="icon_img"></image>
+                <span>待确认</span>
+            </view>
+            <view class="item"  bind:tap="goDetailFn" data-id="3" >
+                 
+                <image src="{{ icon3 }}" class="icon_img"></image>
+               
+               
+                <span>配货中</span>
+            </view>
+            <view class="item"  bind:tap="goDetailFn" data-id="4" >
+                 <image src="{{ icon4 }}" class="icon_img"></image>
+                
+                 <span>已发货</span>
+            </view>
+        </view>
+    </view>
+
+    <view class="content_con">
+        <view class="big_title">
+            <span>我的工具</span>
+        </view>
+
+
+        <view class="list">
+            <view class="item" bind:tap="supplyPriceStatusFn">
+                <image src="{{ icon5 }}" class="icon_img"></image>
+
+                <span> {{ supplyPriceStatus?"关闭底价":"查看底价" }} </span>
+            </view>
+
+            <!-- <view class="item">
+                <image src="{{ icon10 }}" class="icon_img"></image>
+                <span>我的收藏</span>
+            </view> -->
+        </view>
+    </view>
+</view>

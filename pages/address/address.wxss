@@ -1,0 +1,86 @@
+page {
+    background: #fafafa;
+}
+
+.form_con{
+
+    display: block;
+    margin: 20rpx 32rpx;
+ 
+    background: #fff;
+ 
+}
+.form_con .item{
+    min-height: 100rpx;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 30rpx;
+    border-bottom: 1px solid #fafafa;
+    
+}
+.address_page .sub_btn{
+    width:750rpx;
+    height: 100rpx;
+
+    line-height: 100rpx;
+    text-align:center;
+    font-size: 32rpx;
+
+    background:#000 ;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+
+
+
+    padding-bottom: 35rpx;
+    padding-bottom:  constant(safe-area-inset-bottom) ;
+    padding-bottom:  env(safe-area-inset-bottom)   ;  
+}
+
+
+.form_con .item .title {
+    width:120rpx;
+    height: 100rpx;
+   
+    line-height: 100rpx;
+ 
+    font-size: 30rpx;
+ 
+    text-align: right;
+    overflow: hidden;
+    color: #666;
+}
+
+
+
+.form_con .item .input_val{
+    width: 440rpx;
+    min-height: 100rpx;
+    background: #fff;
+ 
+    font-size: 30rpx;
+    padding-left: 40rpx;
+    padding-right: 40rpx;
+ 
+}
+.form_con .item  .detail_address {
+    height: 160rpx;
+    padding-top: 35rpx;
+    
+    font-size: 30rpx;
+    
+
+}
+
+.picker_con{
+     height: 100%;
+     margin-top: 32rpx;
+}
+.picker_con .picker{
+      height: 50rpx;
+}

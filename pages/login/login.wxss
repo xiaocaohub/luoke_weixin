@@ -1,0 +1,53 @@
+.login_page {
+    position: fixed;
+    left: 0;
+    
+    top: 0;
+
+    right: 0;
+    bottom: 0;
+    background: url("https://luockoo.oss-cn-shenzhen.aliyuncs.com/file/dl_bg.png ") no-repeat left top;
+    background-size: cover;
+}
+.login_page  .content{
+    position: absolute;
+    left:0;
+    right: 0;
+    bottom: 131rpx;
+}
+.login_page .btngroup {
+    padding:0 74rpx;
+}
+.login_page  .btngroup .btn{    
+     height: 88rpx;
+     line-height: 88rpx;
+     text-align: center;
+     overflow: hidden;
+     color:#fff;
+     margin-bottom: 32rpx;
+     background-color: #1a1a1a;
+}
+.login_page  .btngroup .number_btn {
+     background-color: #fff;
+     color: #1a1a1a;
+}
+.login_page .text_con {
+    height: 45rpx;
+    line-height: 45rpx;
+    display: flex;
+    flex-direction: row;
+    margin:231rpx 43rpx 0;
+    font-size: 24rpx;
+    justify-content: space-between;
+    color: #BBB;
+}
+
+.login_page .text_con .text  .select_icon {
+    display: block;
+    margin-right: 16rpx;
+    width: 45rpx;
+    height: 45rpx;
+    float: left;
+    overflow: hidden;
+     
+}

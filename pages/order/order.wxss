@@ -1,0 +1,135 @@
+page {
+    background: #fafafa;
+}
+
+.order_page .nav_list_con {
+ 
+     width: 686rpx;
+     height: 88rpx;
+     padding:0 32rpx;
+     background: #fff;
+     position: fixed;
+     left: 0;
+     top:0;
+     z-index: 10;
+}
+.order_page .nav_list_con .nav_list{
+     width:950rpx;
+     height: 88rpx;
+     line-height: 88rpx;
+     display: flex;
+     flex-direction: row;
+     font-size: 28rpx; 
+}
+.order_page .nav_list .item{
+     margin-right: 50rpx;
+}
+.order_page .nav_list .item.on{
+     font-size: 30rpx;
+     font-weight: bold;
+}
+
+.order_page .order_list {
+    margin: 20rpx 32rpx;
+    padding-bottom: 50rpx;
+
+    padding-top: 88rpx;
+}
+.order_list .order{
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+
+.order_list .order .top_title {
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26rpx;
+    padding:0 29rpx;
+    overflow: hidden;
+}
+
+.order_list .order .good_list_con {
+    width: 686rpx;
+    overflow: hidden;
+}
+
+.order_list .order .good_list_con  .good_list {
+    width: 1000rpx;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    padding: 0 29rpx;
+}
+.order_list .order .good_list .good {
+     width: 206rpx;
+     height: 138rpx;
+     margin-right: 8rpx;
+     position: relative;
+     overflow: hidden;
+}
+.order_list .order  .good .good_img {
+     display: block;
+     width: 206rpx;
+     height: 138rpx;
+}
+.order_list .order  .good .count {
+     height: 28rpx;
+     line-height: 28rpx;
+     background: #D9D9D9;
+     position: absolute;
+     right: 0;
+     bottom: 0;
+     z-index: 1;
+     font-size: 20rpx;
+     padding: 0 15rpx 0 10rpx;
+     border-top-left-radius: 28rpx;
+     border-bottom-left-radius: 28rpx;
+}
+
+.order_list .order .good_list .good .shadow{
+     width:206rpx;
+     height: 138rpx;
+     line-height: 138rpx;
+     position: absolute;
+     left: 0;
+     top:0;
+     z-index:10;
+     font-size: 24rpx;
+
+     color: #fff;
+     text-align: center;
+     background: rgba(0, 0, 0, 0.5);
+}
+.order_list .order   .total_con {
+     height: 88rpx;
+     line-height: 88rpx;
+     margin:40rpx 20rpx 0;
+     font-size: 24rpx;
+     display: flex;
+     flex-direction:row;
+     justify-content: space-between;
+     color: #999;
+     border-top: 1px solid #e1e1e1;
+}
+
+.order_list .order   .total_con .price {
+     font-size: 36rpx;
+     font-weight: bold;
+     color: #333;
+}
+
+.order_list .order   .total_con .unit {
+     color: #333;
+}
+.empty_img{
+    display: block;
+    margin: 0 auto;
+}
+.title_msg {
+    font-size: 32rpx;
+    text-align: center;
+    margin-top: 50rpx;
+}

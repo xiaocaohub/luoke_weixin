@@ -1,0 +1,7 @@
+<view class="hot_good">
+     <image src="{{ imgSrc }}" class="img"></image>
+     <view class="title">{{ hotGood.title }} </view>
+
+     <view class="price">￥{{ hotGood.price }}</view>
+
+</view>

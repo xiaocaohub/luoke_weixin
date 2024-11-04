@@ -1,0 +1,15 @@
+<view class="shop">
+    <scroll-view class="shop_good_list_con" scroll-x="true">
+        <view class="shop_good_list">
+            
+          <view class="shop_good" wx:for="{{ orderItem.details }}" wx:key="index">
+          
+              <image src="{{ item.imgurl }}" class="img"></image>
+              <span class="count">X{{ item.num }}</span>
+          </view>
+        </view>
+      
+    </scroll-view>
+    <textarea placeholder="添加备注信息" class="remark"  bindinput="remarkFn" data-orderIndex="{{orderIndex}}"/>
+
+</view>

@@ -1,0 +1,223 @@
+page{
+  padding-top: 250rpx;
+  background: #FAFAFA;
+}
+.top_con{
+ 
+  width: 750rpx;
+  position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+}
+.search_con{
+    width: 686rpx;
+
+    height: 68rpx;
+    background-image:  url("../../public/icon/search.png") no-repeat left center;
+    background-color: #F0F0F0; 
+    margin: 20rpx auto 0;
+    display: block;
+    border-radius: 68rpx;
+   
+}
+.search_btn{
+    display: block;
+    width: 40rpx;
+    height: 40rpx;
+    float: left;
+    margin-top: 14rpx;
+
+    margin-left: 24rpx;
+}
+.search {
+  display: block;
+  width:605rpx;
+  height: 68rpx;
+
+
+  float: left;
+  padding-left: 17rpx;
+  font-size: 32rpx;
+}
+.filter_con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20rpx 0;
+}
+.filter_con .item{
+    width:100rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 28rpx; 
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter_con .item:first-child{
+     justify-content: center;
+}
+ 
+.filter_con .item .img_icon{
+     display: block;
+     width: 28rpx;
+     height: 28rpx;
+}
+.good_list{
+     display: flex;
+     flex-direction: row;
+     flex-wrap:wrap;
+     padding: 0 29rpx 50rpx;
+     justify-content: space-between;
+ }
+.good{
+     width: 336rpx;
+     margin-bottom: 16rpx;
+     background: #fff;
+}
+.good .img{
+     display: block;
+     width: 336rpx;
+     height: 224rpx;
+}
+.good .good_info{
+     padding:0 20rpx 20rpx;
+}
+.good .price_con {
+    height: 53rpx;
+    color: #E61D38;
+
+
+    overflow: hidden;
+  
+}
+.good .price_con .unit{
+    float: left;
+
+ 
+    position: relative;
+    top: 8rpx;
+}
+
+.good .price{
+     float: left;
+    font-size: 40rpx;
+ 
+}
+.good .small_price{
+    color:#999 ;
+    margin-left: 10rpx;
+    font-size: 24rpx;
+    float: left;
+    position: relative;
+    
+    top:15rpx;
+ 
+}
+.good .style_title{
+    height: 40rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+.good .txt{
+     height: 34rpx;
+     line-height: 34rpx;
+     font-size: 24rpx;
+     color: #999;
+     overflow: hidden;
+}
+.no_data{
+      text-align: center;
+      padding-bottom: 35rpx;
+     
+}
+.empty_img{
+     display: block;
+     margin: 100rpx auto;
+}
+.dialog_con{
+     width: 750rpx;
+     height: 100%;
+     position: fixed;
+     left: 0;
+     top:0;
+     background: rgba(0, 0, 0, 0.5);
+     z-index: 10;
+     transform:translateX(100%);
+}
+.dialog_con.on{
+     transform:translateX(0);
+}
+.dialog_con .select_content{
+     width: 536rpx;
+     height: 100%;
+     padding: 0 32rpx ;
+     float: right;
+     font-weight: bold;
+     background: #fff;
+}
+.dialog_con .select_content .title{
+     height: 40rpx;
+     font-size: 28rpx;
+     margin-top: 32rpx;
+}
+.dialog_con .select_content .title .txt{
+     color: #E03810;
+     margin-left: 20rpx;
+     font-size: 24rpx;
+     font-weight: normal;
+}
+.dialog_con .select_content .style_list{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border: 1px solid brown;
+}
+.dialog_con .select_content .style_list .item{
+     width: 164rpx;
+     height: 55rpx;
+     line-height: 55rpx;
+     font-size: 24rpx;
+     text-align: center;
+     overflow: hidden;
+     margin-top: 20rpx;
+     border: 1px solid #000;
+}
+
+.dialog_con .select_content .style_list .item.on{
+     background: #000;
+     color: #fff;
+}
+.dialog_con .slider_con{
+     height: 100rpx;
+     border: 1px solid brown;
+}
+
+.dialog_con .price_con{
+      height: 55rpx;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid brown;
+}
+.dialog_con .price_con .put_val{   
+      display: block;
+      width: 240rpx;
+      height: 55rpx;
+      line-height: 55rpx;
+      text-align: center;
+      font-size: 24rpx;
+      border: 1px solid #000;
+}
+.dialog_con .price_con .line{
+    width: 20rpx;
+    height: 0;
+    border:1px solid #000;
+}
