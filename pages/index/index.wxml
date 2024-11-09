@@ -1,25 +1,36 @@
 <view>
-    <swiper indicator-dots="{{indicatorDots}}"
-        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper_con">
-        <block wx:for="{{ banner }}" wx:key="*this">
-          <swiper-item>
-            <view class="swiper-item">
-                <image src="{{ item }}" class="img"></image>
-            </view>
-          </swiper-item>
-        </block>
-      </swiper>
+      <view class="page_title_con {{pageTitleFlag?'on':''}}" style="padding-top:{{statusBarHeight}}px;">
+           珞珂家居  
+      </view>
+      <view class="swiper_con_con">
+
+          <view class="page_title" style="top:{{ statusBarHeight }}px;">珞珂家居 </view>
+          <view class="search_con">
+                <image src="{{ searchIcon }}" class="search__img"></image>
+                <input type="text" placeholder="搜索商品名称/编码/型号" class="search" bindinput="searchValueFn"/>
+          </view>
+          <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper_con">
+            <block wx:for="{{ banner }}" wx:key="*this">
+              <swiper-item>
+                <view class="swiper-item">
+                    <image src="{{ item }}" class="img"></image>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+      </view>
 
       <view class="charts_con">
-         <navigator class="big_img" url="/pages/cart/cart" 	open-type="switchTab">
-             <image src="{{ charts[0] }}" mode="scaleToFill"></image>
+         <navigator class="big_img" url="/pages/productroomSearch/productroomSearch?productLabel=101"	open-type="navigate" hover-class="none"  >
+             <image src="{{ charts[0] }}" class="img"  ></image>
          </navigator>
          <view class="small_img_list">
-            <navigator class="small_img first_small_img" url="/pages/cart/cart" open-type="switchTab">
-              <image src="{{ charts[1] }}" mode="scaleToFill"></image>
+            <navigator class="small_img first_small_img" url="/pages/productroomSearch/productroomSearch?productLabel=102" open-type="navigate" hover-class="none">
+              <image src="{{ charts[1] }}"    class="img"></image>
             </navigator>
-            <navigator class="small_img" url="/pages/cart/cart" open-type="switchTab">
-                  <image src="{{ charts[2] }}" mode="scaleToFill" ></image>
+            <navigator class="small_img" url="/pages/productroomSearch/productroomSearch?productLabel=103" open-type="navigate" hover-class="none">
+                  <image src="{{ charts[2] }}"    class="img"></image>
             </navigator>
          </view>
       </view>
@@ -32,16 +43,16 @@
           <scroll-view  type="list" class="vedio_list_scroll" scroll-x="true">
               <view class="vedio_list">
                   <block wx:for="{{ vedios }}" wx:key="*this">
-                      <view class="vedio_item">
+                      <view class="vedio_item" bind:tap="showVedioFn" data-item="{{ item }}">
                           <image src="{{ item.imgSrc }}" class="img"></image>
                           <image src="{{ playIcon }}" class="play_icon"></image>
 
-                          <view class="text_con">
-                               
-                               <view class="txt">{{ item.text }}</view>
+                        
+                          <view class="text_con">        
+                               <view class="txt">{{ item.txt }}</view>
                                <view class="count">
                                   <image src="{{ dianZhanImg }}"></image>
-                                  <text>{{ item.count }}w</text>
+                                  <text>{{ item.total }} </text>
                               </view>
                           </view>
                       </view>
@@ -68,7 +79,7 @@
           <scroll-view class="good_list_scroll" scroll-x="true">
                <view class="good_list">
                
-                   <hot-good wx:for="{{ hotGoodArr }}" hotGood="{{ item }}" wx:key="index"></hot-good>
+                   <hot-good wx:for="{{ hotGoodArr }}" hotGood="{{ item }}"  wx:key="index"></hot-good>
                  
                </view>
           </scroll-view>
@@ -90,4 +101,28 @@
           <good wx:for="{{ styleGoodArr }}" goodItem="{{ item }}" wx:key="index"></good>
           <image src="{{ emptyImg }}" class="empty_img" hidden="{{ styleGoodArr.length != 0 }}"></image>
       </view>
+
+      <!-- style="height:{{ vedioHeight }}px" -->
+      <view class="vedio_con" hidden="{{ !vedioShowFlag }}">
+      
+           <view class="shadow" bind:tap="hideVedioFn"></view>
+           <view class="vedio_view">
+               
+                <video 
+                    id="myVideo" 
+                    autoplay="{{true}}"
+                    src="{{ vedioSrc }}" 
+               
+                   
+                   
+                    show-center-play-btn='{{false}}' 
+                    show-play-btn="{{true}}" 
+                    controls
+                
+            
+                
+                  ></video>
+           </view>
+      </view>
+
 </view>

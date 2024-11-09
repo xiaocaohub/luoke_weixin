@@ -1,0 +1,79 @@
+<view class="user_info_page">
+    <view class="item">
+        <view class="title">签约主体名称:</view>
+
+        <view class="value_content">
+        
+          <radio-group  class="radio_group" bindchange="radioChange">
+              <label class="radio_con"  >
+                  <radio value="0" checked="true"/>
+                  <text>企业</text> 
+              </label>
+              <label class="radio_con"  >
+                  <radio value="1"  />
+                  <text class=" ">个体工商户</text>
+              </label>
+          </radio-group>
+        </view>
+    </view>
+    <view class="item">
+        <view class="title">签约主体名称:</view>
+
+        <view class="value_content">
+        
+            <input type="text" class="put_val" bind:input="companyNameFn" placeholder="请填写签约主体名称"/>
+        </view>
+    </view>
+    <view class="item">
+        <view class="title">企业社会信用代码:</view>
+
+        <view class="value_content">
+        
+            <input type="text" class="put_val" bind:input="codeFn" placeholder="请填写企业社会信用代码"/>
+        </view>
+    </view>
+    <view class="item">
+        <view class="title">企业法人姓名:</view>
+
+        <view class="value_content">
+        
+            <input type="text" class="put_val" bind:input="uNameFn" placeholder="请填写企业法人姓名"/>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="title">企业法人身份证号:</view>
+        <view class="value_content">
+        
+            <input type="text" class="put_val" bind:input="userIdFn" placeholder="请填写企业法人身份证号"/>
+        </view>
+    </view>
+
+
+
+
+
+    <view class="item">
+        <view class="title">联系地址:</view>
+        <view class="value_content">
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" class="region_con">
+            <view class="picker picker_con">
+
+                <span wx:if="{{region.length==0}}" class="tit_msg"> 请选择地区 </span>
+            
+                <span wx:else>
+                    {{region[0]}}, {{region[1]}}, {{region[2]}}
+                </span>
+            </view>
+          </picker>
+        </view>
+    </view>
+    <view class="item">
+        <view class="title">详细地址:</view>
+        <view class="value_content">
+            <textarea  type="text" class="put_val detail_address" bind:input="detailAddressFn" placeholder="请填写详细地址"/>
+        </view>
+    </view>
+
+    <view class="submit_btn" bind:tap="submitFn">提交</view>
+</view>

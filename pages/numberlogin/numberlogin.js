@@ -7,8 +7,6 @@ Page({
         selectFlag: false,
          userNumber: "",
          password: ""
-       //  userNumber: "18529562079",
-        // password: "123456"
     },
     selectFn: function () {
         let selectFlag = !this.data.selectFlag;
@@ -35,9 +33,10 @@ Page({
               icon: "error",
               mask: true
           })
+
           return ;
       }
-
+      
       let password = this.data.password;
       if (!password) {
           wx.showToast({
@@ -54,7 +53,6 @@ Page({
                 api:'app.login.login',
                 storeId: 1,
                 storeType: 6,
-
                 phone: userNumber,
                 password: password
             },
@@ -62,13 +60,23 @@ Page({
               'content-type': 'application/json' 
             },
             success (res) {
-                if (res.data.code == 200) {
+                if (res.data && res.data.code == 200) {
                     let resData = res.data.data;
-
-
                     let loginInfo = {
                         userNumber: userNumber,
                         password: password
+                    }
+                    if (resData.userType == 1) {
+                        wx.showModal({
+                            title: "提示",
+                            content: "您是 C 端用户, 请用一键登录",
+                            success (res) {
+                                if (res.confirm) {
+                                    wx.navigateBack()
+                                }
+                            }
+                        })
+                        return ;
                     }
                     wx.setStorage({
                         key: "loginInfo",
@@ -103,9 +111,9 @@ Page({
               userNumber: userNumber
           })
     },
+
     passwordFn: function (e) {
           let password = e.detail.value;
-          
           this.setData({        
               password: password
           })

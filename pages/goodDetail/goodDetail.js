@@ -39,21 +39,30 @@ Page({
         
         currentSizeIndex: 0,
         goodInfo: "",
+        goodAttr: [],
         mchName: "",
         selectGoodIds: [],
         count: 1,
-        detailImg: "https://luockoo.oss-cn-shenzhen.aliyuncs.com/file/banner_03.jpg",
+
+        detailImg: "https://luockoo.oss-cn-shenzhen.aliyuncs.com/file/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241108200710.png",
         goodImg: "https://luockoo.oss-accelerate.aliyuncs.com/1/7/20240905/1831642348333887488.jpg",
         goodArr: [],
         supplyPriceStatus: false, // 供货价
         sameGoodArr: [],
-        current: 1
+
+        current: 1,
+        emptyImg: "/public/images/empty.png"
       },
       onLoad (option) {
             let goodId = option.id;
             let userInfo = wx.getStorageSync("userInfo");
-            let token = userInfo.access_id;
-            let roleId = userInfo.roleId;
+            let token = "";
+
+            let roleId = "";
+            if (userInfo) {
+                token = userInfo.access_id;
+                roleId = userInfo.roleId;
+            }
             this.setData({
                goodId: goodId,
                userInfo: userInfo,
@@ -74,6 +83,62 @@ Page({
       showDialogFn: function (e) {
            let index = e.currentTarget.dataset.index;
            let btnFlag = index==0?false:true;
+           let userInfo = wx.getStorageSync("userInfo");
+          //  console.log("userInfo")
+          //  console.log(userInfo)
+          //  console.log("userInfo")
+           let roleId = "";
+           let submitFlag = "";  // 提交
+           let examineFlag = ""; // 审核
+           let examineMsg = ""; 
+           
+           if (!userInfo) {
+               wx.showToast({
+                   title: "请登录",
+                   icon: "error"
+               })
+               setTimeout(()=>{
+                   wx.navigateTo({
+                       url: "/pages/login/login"
+                   })
+               }, 2000)
+               return ;
+           }
+          roleId = userInfo.roleId; 
+          submitFlag = userInfo.submitFlag;
+          examineFlag = userInfo.examineFlag;
+          // submitFlag = 0;
+          if ( !roleId && submitFlag == 0) {
+                wx.showModal({
+                  title: "提示",
+                  content: "请填写申请信息",
+                  success (res) {
+                      if (res.confirm) {
+                          wx.navigateTo({
+                              url: "/pages/userInfo/userInfo"
+                          })
+                      }
+                  }
+              })
+              return ;
+          }
+          if (examineFlag == 0) {
+              examineMsg = "审核中";
+          } else if ( examineFlag == -1 ) {
+              examineMsg = "未通过";
+          }
+          if (!roleId && userInfo.examineFlag != 1) {
+               wx.showModal({
+                  title: "提示",
+                  content: "提交成功, " + examineMsg,
+                  success (res) {
+                      if (res.confirm) {
+
+                      }
+                  }
+               })
+               return ;
+           }
            this.setData({
               showDialog: true,
               btnFlag: btnFlag
@@ -95,12 +160,16 @@ Page({
           let url = app.globalData.url;
           let goodId = this.data.goodId;
           let token = this.data.token;
+          wx.showLoading({
+            title: '加载中'
+          })
           wx.request({
               url: url, 
               method: "get",
               data: {
                   api: 'app.product.productDetails',
-                  accessId: token,
+
+                  accessId: token || "",
                   storeId: 1,
                   storeType: 6,
                   productId: goodId
@@ -109,6 +178,7 @@ Page({
                 'content-type': 'application/json'  
               },
               success (res) {
+                  wx.hideLoading()
                   let resData = res.data.data;
                   let productVideo = resData.product.productVideo;
                   let defaultImgArr = resData.product.defaultImgArr;
@@ -117,6 +187,8 @@ Page({
                   let allColorArr = resData.attrList[0].attr;
                   let allSizeArr =  resData.attrList[1].attr;
                   let goodInfo = resData.product;
+                  let goodAttr = JSON.parse(goodInfo.parameters);
+                  let content = JSON.parse(goodInfo.content)[0].content;
                   let selectGoodIds = [];
                   selectGoodIds[0] = allColorArr[0].id;
                   selectGoodIds[1] = allSizeArr[0].id;
@@ -133,10 +205,9 @@ Page({
                       allSizeArr: allSizeArr,
                       currentSize: currentSize,
                       goodInfo: goodInfo,
+                      goodAttr: goodAttr,
                       selectGoodIds: selectGoodIds,
                       currentGood: currentGood,
-
-
                       mchName: resData.mchName
                   }, function () {
                       _this.checkColorArrDisableFn()
@@ -156,7 +227,7 @@ Page({
               api: 'app.cart.index',
               storeId: 1,
               storeType: 6,
-              accessId: token
+              accessId: token || ""
             },
             header: {
               'content-type': 'application/json'  
@@ -224,19 +295,14 @@ Page({
                     currentGood = allGoodArr[i];
                 }
             }
-
-            console.log("currentGood")
-            console.log(currentGood)
-            console.log("currentGood")
-
+            // console.log("currentGood")
+            // console.log(currentGood)
+            // console.log("currentGood")
             this.setData({
                 currentGood: currentGood
             })
       },
-
       setCountFn: function (e) {
-      
-      
             let count = e.detail.value;
             if (isNaN(count)) {
                 count = 1;
@@ -244,7 +310,6 @@ Page({
             this.setData({      
                 count: count
             })
-            
       },
       addCountFn: function () {
           let count = this.data.count + 1;
@@ -261,7 +326,6 @@ Page({
                count: count
            })
       },
-
       checkSizeArrDisableFn: function () {
           let currentColor = this.data.currentColor;
           let colorId = currentColor.id;
@@ -317,17 +381,13 @@ Page({
       },
       addCartFn: function () { 
            let _this = this;
-
            let url = app.globalData.url;
-           
-           
            let userInfo = this.data.userInfo;
            let token = this.data.token;
            let currentGood = this.data.currentGood;
            if (!userInfo) {
                 wx.showToast({
-                  title: "请登录",
-                         
+                  title: "请登录",              
                   icon: "error",
                   mask: true
                 })
@@ -345,7 +405,7 @@ Page({
                api: 'app.cart.addCart',
                storeId: 1,
                storeType: 6,
-               accessId: token,
+               accessId: token || "",
                goodsId: this.data.goodId,
                num: this.data.count,
                attributeId: currentGood.cid 
@@ -366,8 +426,7 @@ Page({
                       })
                       _this.getCartInfoFn()
                   }  else {
-                    wx.showToast({
-                      
+                    wx.showToast({    
                       title: resData.message,
                       icon: "error",
                       mask: true
@@ -376,8 +435,7 @@ Page({
              }
            })
       },
-      buyGoodFn: function () {          
-        
+      buyGoodFn: function () {
           let _this = this;
           let url = app.globalData.url;
           let userInfo = this.data.userInfo;
@@ -403,7 +461,7 @@ Page({
               api: 'app.cart.addCart',
               storeId: 1,
               storeType: 6,
-              accessId: token,
+              accessId: token || "",
               goodsId: this.data.goodId,
               num: this.data.count,
               attributeId: currentGood.cid 
@@ -442,7 +500,7 @@ Page({
                 api: 'app.product.listSimilarProduct',
                 storeId: 1,
                 storeType: 6,
-                accessId: token,
+                accessId: token || "",
                 productId: this.data.goodId
               },
               header: {
@@ -457,11 +515,9 @@ Page({
             })
       },
       viewCopyTextClick: function(){
-
           var _this = this;
           var currentGood = this.data.currentGood;
           var goodFirst = this.data.goodFirst;
-          
           var productCode = currentGood?currentGood.productCode: goodFirst.productCode;
           wx.setClipboardData({
               data: productCode,
@@ -471,8 +527,7 @@ Page({
                           wx.showToast({
                             title: '复制成功'
                           })
-                      }
-          
+                      }        
                   })
               }
           })

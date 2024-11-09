@@ -13,6 +13,7 @@ Page({
          supplyPriceStatus: false,
          token: ""
     },
+    
     onLoad (option) {
          console.log(option)
     },

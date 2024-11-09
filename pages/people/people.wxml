@@ -47,16 +47,15 @@
         </view>
     </view>
 
-    <view class="content_con">
-        <view class="big_title">
+    <view class="content_con" hidden="{{ !userInfo.roleId }}">
+        <view class="big_title"  >
             <span>我的工具</span>
         </view>
 
 
         <view class="list">
-            <view class="item" bind:tap="supplyPriceStatusFn">
+            <view class="item" bind:tap="supplyPriceStatusFn" hidden="{{ !userInfo.roleId }}">
                 <image src="{{ icon5 }}" class="icon_img"></image>
-
                 <span> {{ supplyPriceStatus?"关闭底价":"查看底价" }} </span>
             </view>
 
@@ -66,4 +65,7 @@
             </view> -->
         </view>
     </view>
+
+
+
 </view>

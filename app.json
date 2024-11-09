@@ -1,8 +1,9 @@
 {
   "pages": [
- 
+  
 
     "pages/index/index",
+
     "pages/numberlogin/numberlogin",
     "pages/productroom/productroom",
     "pages/productroomSearch/productroomSearch",
@@ -13,11 +14,10 @@
     "pages/goodDetail/goodDetail",
     "pages/address/address",
     "pages/pay/pay",
- 
     "pages/login/login",
-
+    
     "pages/agreement/agreement",
-
+    "pages/userInfo/userInfo",
     "pages/agreement4/agreement4",
     "pages/payOver/payOver",
     "pages/order/order",

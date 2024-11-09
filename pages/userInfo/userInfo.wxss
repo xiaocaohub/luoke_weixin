@@ -1,0 +1,99 @@
+page{
+    background: #fafafa;
+}
+.user_info_page{
+   
+
+  background: #fff;
+  padding:50rpx 0 100rpx;
+}
+.item{ 
+    margin: 0 32rpx;
+ 
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20rpx;
+    justify-content: space-between;
+    border-top: 1px solid #e5e5e5;
+}
+.item:first-child{
+    border-top: none ;
+}
+.item .title{
+    width: 250rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    overflow:hidden;
+    font-size: 28rpx;
+    text-align:right;
+
+    color: #333;
+ 
+}
+.value_content{
+    width: 410rpx;
+ 
+ 
+}
+.put_val{
+    display: block;
+    width: 340rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    padding:0 20rpx;
+    font-size: 28rpx;
+}
+.submit_btn{
+    
+    width: 750rpx;
+
+
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #333;
+    text-align: center;
+
+    font-size: 32rpx;
+
+    color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.region_con{
+    height: 88rpx; 
+ 
+}
+.picker_con{
+    
+    height: 88rpx;
+ 
+    line-height: 88rpx;
+    overflow: hidden;
+    padding:0 20rpx;
+}
+
+.detail_address{
+    padding-top: 28rpx;
+    height: 150rpx;
+    font-size: 28rpx;
+}
+
+.tit_msg{
+    color: #999;
+}
+
+.radio_group{
+    height: 88rpx;
+    font-size: 28rpx;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    overflow: hidden;
+}
+.radio_group .radio_con{
+    float: left;
+
+    margin-right: 29rpx;
+}

@@ -22,18 +22,23 @@ Page({
 
         screenHeight: 0
     },
-
     onLoad () {
-        let token = wx.getStorageSync("userInfo").access_id;
+
+      let userInfo = wx.getStorageSync("userInfo");
+      let token = "";
+        if (userInfo) {
+            token = userInfo.access_id;
+        }
         this.setData({
             token: token
         })
     },
     onShow () {
         const windowInfo = wx.getWindowInfo()
+        
+        
         let screenHeight = windowInfo.windowHeight;
         this.setData({
-             
             screenHeight: screenHeight
         })
 

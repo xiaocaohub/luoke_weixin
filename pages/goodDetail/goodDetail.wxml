@@ -17,7 +17,7 @@
         <view class="price_con">
           <view class="price_c"> 
             ￥<span class="price">{{ goodFirst.price }}</span>
-            <image src="{{ priceImg }}" class="price_icon"></image>
+            <image src="{{ priceImg }}" class="price_icon"  hidden="{{ !supplyPriceStatus }}"></image>
           </view>
           <view class="small_price" hidden="{{ !supplyPriceStatus }}">￥{{ goodFirst.discountPrice }}</view>
         </view>
@@ -74,10 +74,9 @@
     <view class="detail_con">
         <view class="big_titlr_con">
             <view class="tit">商品详情</view>
-            
         </view>
         <view class="detail">
-            <image src="{{ detailImg }}" class="img"></image>
+            <image src="{{ detailImg }}" class="img"  ></image>
         </view>
     </view>
 
@@ -89,90 +88,65 @@
         <view class="info_list">
             <view class="item">
                 <view class="tit">分类</view>
-                <view class="txt">沙发</view>
+                <view class="txt">{{ goodInfo.categoryName }}</view>
             </view>
 
             <view class="item">
                 <view class="tit">风格</view>
-                <view class="txt">极简</view>
+                <view class="txt"> {{ goodInfo.styleName }} </view>
             </view>
 
             <view class="item">
                 <view class="tit">型号</view>
-                <view class="txt">LKS8825-E1.4*2</view>
+                <view class="txt"> {{ currentGood?currentGood.marque: goodFirst.marque }} </view>
             </view>
 
             <view class="item">
                 <view class="tit">体积</view>
-                <view class="txt">2.4（m³）</view>
+                <view class="txt"> {{ currentGood?currentGood.capacity: goodFirst.capacity }}（m³）</view>
             </view>
 
             <view class="item">
                 <view class="tit">包件数</view>
-                <view class="txt">2</view>
+                <view class="txt"> {{ currentGood?currentGood.bomNums: goodFirst.bomNums }} </view>
             </view>
 
-            <view class="item">
-                <view class="tit">软硬度</view>
-                <view class="txt">适中</view>
-            </view>
-
-            <view class="item">
-                <view class="tit">坐高</view>
-                <view class="txt">400mm</view>
-            </view>
-
-            <view class="item">
-                <view class="tit">坐深</view>
-                <view class="txt">400mm</view>
-            </view>
-
-            <view class="item">
-                <view class="tit">沙发脚高</view>
-                <view class="txt">40mm</view>
-
-
-            </view>
-
-
-            <view class="item">
-                <view class="tit">面料</view>
-                <view class="txt">头层牛皮/仿皮</view>
-            </view>
-
-
-
-
-
-            <view class="item">
-                <view class="tit">填充物</view>
-                <view class="txt">55密度太空海棉+50密度高弹海绵+白鹅绒 55密度太空海棉55密度太空海棉55密度太空海棉55密度太空海棉</view>
+            <view class="{{ item.value?'item':''}}" wx:for="{{ goodAttr }}" wx:key="index"  >
+            
+          
+                    <view class="tit" hidden="{{ !item.value }}"> {{ item.label }} </view>
+                    <view class="txt" hidden="{{ !item.value }}"> {{ item.value }}</view>
+              
             </view>
         </view>
     </view>
 
     <view class="same_good_con">
        <view class="big_titlr_con">
-
             <view class="tit" bind:tap="getSameGoodFn">同类推荐</view>
         </view>
         <view class="good_list">
-
              <navigator class="good" wx:for="{{ sameGoodArr }}" wx:key="index" hover-class="none" url="/pages/goodDetail/goodDetail?id={{ item.id }}">
                <image src="{{ item.goodsImg }}" class="img"></image>
                <view class="good_info">
                     <view class="price_con">
                         <view class="unit">￥</view>
-
                         <view class="price">{{ item.price }}</view>
                         <view class="small_price" hidden="{{ !roleId }}" wx:if="{{ roleId }}">￥{{ item.discountPrice }}</view>
                         <view class="small_price" hidden="{{ !supplyPriceStatus }}" wx:else>￥{{ item.discountPrice }}</view>
                     </view>
-                    <view class="title">极简｜沙发</view>
+                    <view class="title"> {{ item.styleName }} | {{  item.categoryName }} </view>
+
+
                     <view class="txt"> {{ item.product_title }} </view>
                 </view>
             </navigator>
+
+            <image src="{{ emptyImg }}" alt="" hidden="{{ sameGoodArr.length !=0 }}" class="empty_img"></image>
+
+            <view class="title_msg" hidden="{{ sameGoodArr.length !=0 }}">没有商品</view>
         </view>
+        
     </view>
 
     <view class="add_cart_con">
@@ -243,4 +217,5 @@
         </view>
     </view>
 
+    <view class=""></view>
 </view>

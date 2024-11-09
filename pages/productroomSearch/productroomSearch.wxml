@@ -8,12 +8,12 @@
             <view class="item" bind:tap="resetFn">综合</view>
             <view class="item" data-type="volume" bind:tap="selectBuyCountFn">
                 <span>销量</span>
-                <image src="{{ priceUp }}" class="img_icon"></image>
+                <image src="{{ volumeSort =='asc'?priceUpOn:priceDown }}" class="img_icon"></image>
             </view>
             <view class="item" data-type="price" bind:tap="selectPriceFn">
                 <span>价格</span>
             
-                <image src="{{ priceUp }}" class="img_icon"></image>
+                <image src="{{ priceSort =='asc'?priceUpOn:priceDown }}" class="img_icon"></image>
             </view>
             <!-- <view class="item">
                 <span>筛选</span>
@@ -21,8 +21,8 @@
             
             </view> -->
         </view>
-
     </view>
+
 
     <view class="good_list">    
         <navigator class="good" wx:for="{{ goodArr }}" wx:key="index" hover-class="none" url="/pages/goodDetail/goodDetail?id={{ item.id }}" hover-class="none">
@@ -33,14 +33,13 @@
                   <view class="price">{{ item.price }}  </view>
                   <view class="small_price" hidden="{{ !supplyPriceStatus }}">￥{{ item.discountPrice }}</view>
               </view>
-              <view class="style_title">{{ item.styleName }} | {{  item.categoryName }}  </view>
+
+              <view class="style_title"> {{ item.styleName }} | {{  item.categoryName }}  </view>
+
 
               <view class="txt"> {{ item.product_title }} </view>
-
-
           </view>
         </navigator>
-
     </view>
     
     <image src="{{ emptyImg }}" class="empty_img" hidden="{{ goodArr.length !== 0 }}"></image>
@@ -56,7 +55,6 @@
                 <view class="item on">轻奢</view>
 
                 <view class="item">奶油</view>
-                
                 <view class="item">中古</view>
                 <view class="item">侘寂</view>
                 <view class="item">混搭</view>
@@ -64,7 +62,6 @@
 
             <view class="title">
                 <span>价格</span>
-            
                 <span class="txt">已选: 1500-4000</span>
             </view>
 

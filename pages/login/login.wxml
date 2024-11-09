@@ -2,9 +2,13 @@
     <view class="content">   
           <view class="btngroup">
 
-              <!-- <view class="btn" bind:tap="loginFn">微信一键登录</view> -->
+            <button class="btn" open-type="getPhoneNumber" bindgetphonenumber ="getPhoneFn">微信一键登录</button>
 
-              <navigator url="/pages/numberlogin/numberlogin" class="btn number_btn">账号密码登录</navigator>
+              <!-- <button class="btn" open-type="getPhoneNumber" bindgetphonenumber ="getPhoneFn"  wx:if="{{ selectFlag }}">微信一键登录</button> -->
+              <!-- <view class="btn" bind:tap="titleFn" hidden="{{ selectFlag }}" wx:else>微信一键登录</view> -->
+              <!-- <button class="btn" open-type="getRealtimePhoneNumber" bindgetrealtimephonenumber="getPhoneFn">微信一键登录</button> -->
+              <!-- <button class="btn"  open-type="getRealtimePhoneNumber" bindgetrealtimephonenumber="getPhoneFn">微信一键登录</button> -->
+              <navigator url="/pages/numberlogin/numberlogin" class="btn number_btn"> B端账号密码登录</navigator>
           </view>
 
           <view class="text_con">

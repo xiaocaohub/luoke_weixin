@@ -6,7 +6,7 @@
     </view>
 
     <view class="item">    
-        <input type="text" class="put_val" value="{{ password }}" placeholder="请输入密码" bind:input="passwordFn"/>
+        <input type="password" class="put_val" value="{{ password }}" placeholder="请输入密码" bind:input="passwordFn"/>
     </view>
 
     <view class="login_btn" bind:tap="loginFn">登录</view>
