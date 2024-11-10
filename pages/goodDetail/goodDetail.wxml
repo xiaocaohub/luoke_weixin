@@ -52,16 +52,16 @@
         <image src="{{ chevronRight }}" class="right_btn" ></image>
 
         <view class="txt">
-           <text>{{ goodFirst.name }} </text> 
+           <text>{{ goodFirst.name?goodFirst.name:"--" }} </text> 
         </view>
      </view>
 
 
     <view class="brand_con">
         <view class="title_con">
-            <view class="tit">原创系列</view>
+            <view class="tit">{{ goodInfo.brandName?goodInfo.brandName:"--" }}</view>
         
-            <view class="txt">在售商品66款</view>
+            <view class="txt">在售商品 {{ goodInfo.goodsCount?goodInfo.goodsCount:0 }}款</view>
         </view>
         
 

@@ -4,7 +4,7 @@
     </view>
 
 
-    <scroll-view class="good_content" 	scroll-into-view="{{ scrollIntoView }}" scroll-y="{{true}}" style="height:{{screenHeight}}px" scroll-with-animation="{{ true }}">
+    <scroll-view class="good_content" 	scroll-into-view="{{ scrollIntoView }}" scroll-y="{{true}}" scroll-with-animation="{{ true }}">
         <view class="good_list_con" id="goodKind0">
             <image src="{{ hotBannerImg }}" class="banner"></image>
             <view class="good_list">

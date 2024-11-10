@@ -62,11 +62,11 @@
     width: 575rpx;
     line-height: 68rpx;
     font-size: 28rpx;
-    color: #D9D9D9;
+    color: #fff;
     padding-left: 15rpx;
 }
-.search_con .search ::placeholder {
-   color: #D9D9D9;
+.placehold {
+   color: rgba(224, 224, 224, 1);
 }
 .swiper_con_con{
   overflow: hidden;
@@ -276,16 +276,17 @@
 }
 
 .style_nav_list{
-      /* height: 95rpx; */
+      height: 95rpx;
       overflow: hidden;
+    
 }
-.style_nav{
+.style_nav_list .style_nav{
       max-width:1000rpx;
       height: 88rpx;
       display: flex;
       flex-direction: row;
 }
-.style_nav_list .item{
+.style_nav_list .style_nav .item{
      width:60rpx;
      height: 88rpx;
      line-height: 88rpx;
@@ -293,7 +294,7 @@
      margin: 0 31rpx;
      border-bottom:4rpx solid transparent;
 }
-.style_nav_list .item.on{
+.style_nav_list .style_nav .item.on{
      font-size: 32rpx;
      width:71rpx;
      font-weight: bold;

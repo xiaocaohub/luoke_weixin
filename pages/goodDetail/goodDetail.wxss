@@ -186,6 +186,9 @@
       line-height: 108rpx;
       font-size: 28rpx;
  }
+ .brand_txt navigator {
+    float: left;
+ }
  .detail_con {
        overflow: hidden;
        border-bottom: 20px solid #f5f5f5;

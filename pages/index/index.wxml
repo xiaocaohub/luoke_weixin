@@ -7,7 +7,7 @@
           <view class="page_title" style="top:{{ statusBarHeight }}px;">珞珂家居 </view>
           <view class="search_con">
                 <image src="{{ searchIcon }}" class="search__img" bind:tap="searchGoodFn"></image>
-                <input type="text" placeholder="搜索商品名称/编码/型号" class="search" value="{{ searchValue }}" bindinput="searchValueFn"/>
+                <input type="text" placeholder="搜索商品名称/编码/型号" class="search" value="{{ searchValue }}" bindinput="searchValueFn" placeholder-class="placehold"/>
           </view>
           <swiper indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper_con">
@@ -87,7 +87,7 @@
 
 
       <image src="{{ bigBackSrc }}" class="big_back" bind:tap="getStyleNavFn"></image>
-
+ 
       <view class="style_nav_list_con"  >
           <scroll-view class="style_nav_list" scroll-x="true">
                <view class="style_nav">

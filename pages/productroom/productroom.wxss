@@ -28,11 +28,21 @@
 }
 .good_content{
      width: 536rpx;
-     float: right;
+ 
      padding: 32rpx;
      background-color: #fff;
      border: 1px solid #E1E1E1;
      border-right: 0;
+
+     position: fixed;
+
+
+     right: 0;
+     top:0;
+     bottom: 0px;
+     padding-bottom: 20px;
+    
+     border-bottom: 0;
 }
 
 

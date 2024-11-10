@@ -49,12 +49,14 @@
     line-height: 45rpx;
     display: flex;
     flex-direction: row;
-    margin:231rpx 43rpx 0;
+    margin:231rpx 45rpx 0;
     font-size: 24rpx;
     justify-content: space-between;
     color: #BBB;
 }
-
+.login_page .text_con navigator{
+    color: #fff;
+}
 .login_page .text_con .text  .select_icon {
     display: block;
     margin-right: 16rpx;
