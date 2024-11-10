@@ -107,7 +107,7 @@ Page({
     text1: "/public/images/index_text_1.png",
     text2: "/public/images/index_text_2.png",
     text3: "/public/images/index_text_3.png",
-    bigBackSrc: "/public/images/big_back.png",
+    bigBackSrc: "https://luockoo.oss-cn-shenzhen.aliyuncs.com/file/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241110185515.png",
     emptyImg: "/public/images/empty.png",
     windowWidth: 375,
     vedioHeight: 200,
