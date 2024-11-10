@@ -1,18 +1,15 @@
 page{
-    background: #fafafa;
+    background: #FAFAFA;
 }
 .user_info_page{
-   
-
   background: #fff;
-  padding:50rpx 0 100rpx;
+ 
+  margin:20rpx 32rpx;
 }
 .item{ 
-    margin: 0 32rpx;
- 
+    margin-left: 32rpx;
     display: flex;
     flex-direction: row;
-    margin-bottom: 20rpx;
     justify-content: space-between;
     border-top: 1px solid #e5e5e5;
 }
@@ -20,72 +17,62 @@ page{
     border-top: none ;
 }
 .item .title{
-    width: 250rpx;
-    height: 88rpx;
-    line-height: 88rpx;
+    width: 120rpx;
+    height: 100rpx;
+    line-height: 100rpx;
     overflow:hidden;
     font-size: 28rpx;
     text-align:right;
-
     color: #333;
- 
 }
 .value_content{
-    width: 410rpx;
- 
- 
+    width: 470rpx;
+    margin-right: 20rpx;
 }
 .put_val{
     display: block;
-    width: 340rpx;
-    height: 88rpx;
-    line-height: 88rpx;
-    padding:0 20rpx;
+    width: 100%;
+    height: 100rpx;
+
+    line-height: 100rpx;
+
+
     font-size: 28rpx;
+    background: #fff;
 }
 .submit_btn{
-    
     width: 750rpx;
-
-
     height: 88rpx;
     line-height: 88rpx;
     background: #333;
     text-align: center;
-
     font-size: 32rpx;
-
     color: #fff;
     position: fixed;
     left: 0;
     bottom: 0;
+    padding-bottom: 35rpx;
+    padding-bottom:  constant(safe-area-inset-bottom) ;
+    padding-bottom:  env(safe-area-inset-bottom)   ;  
 }
-
 .region_con{
-    height: 88rpx; 
- 
+    height: 100rpx; 
 }
 .picker_con{
-    
-    height: 88rpx;
- 
-    line-height: 88rpx;
-    overflow: hidden;
-    padding:0 20rpx;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    overflow: hidden; 
 }
-
 .detail_address{
-    padding-top: 28rpx;
     height: 150rpx;
     font-size: 28rpx;
 }
-
 .tit_msg{
     color: #999;
 }
-
 .radio_group{
-    height: 88rpx;
+    height: 100rpx;
     font-size: 28rpx;
     display: flex;
     flex-direction:row;
@@ -94,6 +81,13 @@ page{
 }
 .radio_group .radio_con{
     float: left;
-
     margin-right: 29rpx;
+}
+
+.right_btn{
+    display: block;
+    float: right;
+    width: 40rpx;
+    height: 40rpx;
+    margin-top: 29rpx;
 }

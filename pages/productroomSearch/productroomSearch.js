@@ -28,7 +28,9 @@ Page({
         },
         volumeSort: "asc",
         
-        priceSort: "asc"
+        priceSort: "asc",
+        keyword: "",
+        filterNavIndex:0
     },
     onLoad (option) {
         let userInfo =  wx.getStorageSync("userInfo");
@@ -36,8 +38,8 @@ Page({
         let productClass = "";
         let filterOption = this.data.option;
 
-        
         let searchValue = "";
+        let keyword = "";
         if (userInfo) {
            token = userInfo.access_id;
         }
@@ -61,16 +63,20 @@ Page({
                searchValue: searchValue
             })
         }
+
+        if (option.keyword) {
+            keyword = option.keyword;
+        }
         this.setData({
             token: token,
             productClass: productClass,
-            option: filterOption
+            option: filterOption,
+            keyword: keyword
         }, function () {
 
             this.getGoodListFn(this.filterGoodFn)
         })
     },
-
     onShow () {
           let supplyPriceStatus = wx.getStorageSync('supplyPriceStatus');
           this.setData({
@@ -87,13 +93,15 @@ Page({
           })      
     },
     resetFn: function () {
+      
           let option =  {
               sortCriteria: "",
               sort: "asc",
               productLabel: ""
           };
           this.setData({
-              option: option
+              option: option,
+              filterNavIndex: 0
           }, function () {
              this.getGoodListFn(this.filterGoodFn) 
           })
@@ -118,8 +126,8 @@ Page({
         this.setData({
             option: option,
             page: 1,
-            volumeSort: volumeSort
-        
+            volumeSort: volumeSort,
+            filterNavIndex: 1
         }, function () {
             this.getGoodListFn(this.filterGoodFn, volumeSort)
         })
@@ -145,7 +153,8 @@ Page({
         this.setData({
             option: option,
             page: 1,
-            priceSort: priceSort
+            priceSort: priceSort,
+            filterNavIndex: 2
         }, function () {
             _this.getGoodListFn(_this.filterGoodFn, priceSort)
         })
@@ -163,6 +172,7 @@ Page({
         let queryCriteria = JSON.stringify(option);
         let searchValue = encodeURIComponent(this.data.searchValue);
         let productLabel = this.data.option.productLabel;
+        let keyword = this.data.keyword;
         wx.request({
             url: url, 
             method: "get",
@@ -177,7 +187,8 @@ Page({
                 sortCriteria: filterOption.sortCriteria,
                 productLabel: filterOption.productLabel,
                 // keyword: searchValue,
-                keyword: "",
+
+                keyword: keyword,
                 queryCriteria: queryCriteria,
                 // sort: filterOption.sort,
                 sort: sort || 'asc',

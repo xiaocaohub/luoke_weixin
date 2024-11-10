@@ -84,14 +84,10 @@ Page({
            let index = e.currentTarget.dataset.index;
            let btnFlag = index==0?false:true;
            let userInfo = wx.getStorageSync("userInfo");
-          //  console.log("userInfo")
-          //  console.log(userInfo)
-          //  console.log("userInfo")
            let roleId = "";
            let submitFlag = "";  // 提交
            let examineFlag = ""; // 审核
            let examineMsg = ""; 
-           
            if (!userInfo) {
                wx.showToast({
                    title: "请登录",
@@ -107,19 +103,27 @@ Page({
           roleId = userInfo.roleId; 
           submitFlag = userInfo.submitFlag;
           examineFlag = userInfo.examineFlag;
+          
           // submitFlag = 0;
+          // wx.navigateTo({
+          //   url: "/pages/userInfo/userInfo"
+          // })
+          // return ;
           if ( !roleId && submitFlag == 0) {
-                wx.showModal({
-                  title: "提示",
-                  content: "请填写申请信息",
-                  success (res) {
-                      if (res.confirm) {
-                          wx.navigateTo({
-                              url: "/pages/userInfo/userInfo"
-                          })
-                      }
-                  }
+              wx.navigateTo({
+                url: "/pages/userInfo/userInfo"
               })
+              //   wx.showModal({
+              //     title: "提示",
+              //     content: "请填写申请信息",
+              //     success (res) {
+              //         if (res.confirm) {
+              //             wx.navigateTo({
+              //                 url: "/pages/userInfo/userInfo"
+              //             })
+              //         }
+              //     }
+              // })
               return ;
           }
           if (examineFlag == 0) {

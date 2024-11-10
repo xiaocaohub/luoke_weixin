@@ -20,7 +20,7 @@ Page({
     onShow () {
         let userInfo = wx.getStorageSync('userInfo');
         let supplyPriceStatus = wx.getStorageSync('supplyPriceStatus');
-
+        console.log(userInfo)
         let token = userInfo.access_id;
         this.setData({
             token: token,

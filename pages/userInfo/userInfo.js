@@ -14,7 +14,9 @@ Page({
         province: "",
         city: "",
         area: "",
-        detailAddress: ""
+        detailAddress: "",
+
+        rightIcon: "/public/icon/chevron_right_btn.png"
     },
     onShow () {
         let userInfo = wx.getStorageSync("userInfo");
@@ -97,7 +99,62 @@ Page({
        let userId = this.data.userId;
        let region = this.data.region;
        let detailAddress = this.data.detailAddress;
-       wx.request({
+       if (!companyName) {
+           wx.showToast({
+             title: '请填写公司名称',
+             icon: "error",
+             
+             mask: true
+           })
+           return ;
+       }
+       if (!code) {
+          wx.showToast({
+            title: '请填写企业代码',
+            icon: "error",
+            mask: true
+          })
+          return ;
+      }
+      if (!uName) {
+          wx.showToast({
+            title: '请填企业法人姓名',
+            icon: "error",
+            mask: true
+          })
+          return ;
+      }
+      if (!userId) {
+          wx.showToast({
+            title: '请填法人身份证号',
+            icon: "error",
+            mask: true
+          })
+          return ;
+      }
+
+
+
+
+
+      if (region.length == 0) {
+          wx.showToast({
+            title: '请选择地区',
+            icon: "error",
+            
+            mask: true
+          })
+          return ;
+      }
+      if (!detailAddress) {
+          wx.showToast({
+            title: '请填写详细地址',
+            icon: "error",
+            mask: true
+          })
+          return ;
+      }
+      wx.request({
           url: url,
           method: "get",
           data: {    
@@ -119,7 +176,6 @@ Page({
             'content-type': 'application/json'  
           },
           success (res) {
-
                 if (res.data.code == 200) {
                     userInfo.submitFlag = 1;
                     userInfo.examineFlag = 0;

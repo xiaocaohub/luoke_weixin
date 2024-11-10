@@ -10,8 +10,8 @@ Component({
              type: Number,
              value: 1
         },
-        supplyPriceStatus: {
-            type: Boolean,
+        supplyPriceStatusValue: {
+            type: Number || String,
             value: false
 
         },

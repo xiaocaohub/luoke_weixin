@@ -6,8 +6,8 @@
 
           <view class="page_title" style="top:{{ statusBarHeight }}px;">珞珂家居 </view>
           <view class="search_con">
-                <image src="{{ searchIcon }}" class="search__img"></image>
-                <input type="text" placeholder="搜索商品名称/编码/型号" class="search" bindinput="searchValueFn"/>
+                <image src="{{ searchIcon }}" class="search__img" bind:tap="searchGoodFn"></image>
+                <input type="text" placeholder="搜索商品名称/编码/型号" class="search" value="{{ searchValue }}" bindinput="searchValueFn"/>
           </view>
           <swiper indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper_con">

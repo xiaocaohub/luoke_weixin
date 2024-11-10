@@ -6,16 +6,17 @@
 
     <view class="good_info">  
         <view class="title">{{ goodItem.product_title }}</view>
-        <view class="txt">材质: {{ goodItem.skuName }}</view>
-        <view class="txt">规格: 双扶手三人位-2850*9 双扶手三人位-2850*9</view>
-        <view>{{ roleId }}</view>
+        <!-- <view class="txt">材质: {{ goodItem.skuName }}</view> -->
+        <view class="txt"> {{ goodItem.parameters[0] }} </view>
+        <view class="txt"> {{ goodItem.parameters[1] }} </view>
         <view class="price_con">
             <view class="price_text">
                 <view class="price_c">￥<span class="price">{{ goodItem.price }}</span></view>
-                <view class="small_price" hidden="{{ !roleId }}" wx:if="{{ roleId }}">{{  goodItem.discountPrice }}</view>
+                <!-- <view class="small_price" hidden="{{ !roleId }}" wx:if="{{ roleId }}">{{  goodItem.discountPrice }}</view>
 
-                <view class="small_price" hidden="{{ !supplyPriceStatus }}" wx:else>{{  goodItem.discountPrice }}</view>
+                <view class="small_price" hidden="{{ supplyPriceStatusValue == 0 }}" wx:else>{{  goodItem.discountPrice }}</view> -->
 
+                <view class="small_price" hidden="{{ supplyPriceStatusValue == 0 }}">{{  goodItem.discountPrice }}</view> 
             </view>
             
             <view class="count_con">

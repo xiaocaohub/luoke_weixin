@@ -1,5 +1,5 @@
 page{
-  padding-top: 250rpx;
+  padding-top: 237rpx;
   background: #FAFAFA;
 }
 .top_con{
@@ -39,7 +39,7 @@ page{
 
   float: left;
   padding-left: 17rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;  
 }
 .filter_con{
     display: flex;
@@ -58,7 +58,9 @@ page{
     justify-content: space-between;
     align-items: center;
 }
-
+.filter_con .item.on{
+    font-weight: bold;
+}
 .filter_con .item:first-child{
      justify-content: center;
 }

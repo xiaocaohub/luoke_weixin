@@ -112,7 +112,9 @@ Page({
     windowWidth: 375,
     vedioHeight: 200,
     statusBarHeight: 0,
-    pageTitleFlag: false
+    pageTitleFlag: false,
+  
+    searchValue: ""
   },
 
   onLoad () {
@@ -168,6 +170,28 @@ Page({
   },
   searchValueFn: function (e) {
       console.log(e)
+      let value = e.detail.value;
+      this.setData({
+          searchValue: value
+      })
+  },
+  searchGoodFn: function () {
+      let searchValue = this.data.searchValue;
+      if (!searchValue) {
+          wx.showToast({
+              title: "请填写商品名称",
+              icon: "error",
+              mask: true
+          })
+          return ;
+      }
+      wx.navigateTo({
+           
+          url: "/pages/productroomSearch/productroomSearch?keyword=" +  searchValue
+      })
+      this.setData({
+          searchValue: ""
+      })
   },
    // 一览
   getHotGoodFn: function () {

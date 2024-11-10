@@ -33,6 +33,7 @@
     z-index: 10;
     font-weight: bold;
 }
+
 .search_con{
 
 
@@ -45,7 +46,7 @@
     border-radius: 68rpx;
     display: flex;
     flex-direction: row;
-    background: #A1A1A1;    
+    background: rgba(0, 0 , 0, 0.3);    
 }
 .search_con .search__img{
     display: block;
@@ -185,7 +186,7 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    background: #000;
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
 }
 

@@ -5,12 +5,12 @@
             <input class="search" id="search" 	auto-focus="{{ false }}" value="{{ searchValue }}" auto-focus placeholder="搜索"/>
         </view>
         <view class="filter_con">
-            <view class="item" bind:tap="resetFn">综合</view>
-            <view class="item" data-type="volume" bind:tap="selectBuyCountFn">
+            <view class="item {{filterNavIndex==0?'on':''}}" bind:tap="resetFn">综合</view>
+            <view class="item {{filterNavIndex==1?'on':''}}" data-type="volume" bind:tap="selectBuyCountFn">
                 <span>销量</span>
                 <image src="{{ volumeSort =='asc'?priceUpOn:priceDown }}" class="img_icon"></image>
             </view>
-            <view class="item" data-type="price" bind:tap="selectPriceFn">
+            <view class="item {{filterNavIndex==2?'on':''}}" data-type="price" bind:tap="selectPriceFn">
                 <span>价格</span>
             
                 <image src="{{ priceSort =='asc'?priceUpOn:priceDown }}" class="img_icon"></image>

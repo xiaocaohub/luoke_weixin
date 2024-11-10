@@ -6,7 +6,7 @@
 
             <view class="text_con">
                 <view class="user_name">
-                    <span>{{ userInfo.user_name }}</span>
+                    <span>{{ userInfo.signatoryName?userInfo.signatoryName:userInfo.user_name }}</span>
                     <image src="{{ loginOutIcon }}" class="login_out" bind:tap="loginOutFn"></image>
                 </view>
                 <view class="phone_number">{{ userInfo.phone }}</view>

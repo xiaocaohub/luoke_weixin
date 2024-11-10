@@ -6,7 +6,7 @@
     </view>
 
     <scroll-view class="good_list" scroll-y="true">
-        <w-good wx:for="{{ goodArr }}" wx:key="index"  goodItem="{{ item }}" index="{{ index }}" supplyPriceStatus="{{ supplyPriceStatus }}"  roleId="{{ roleId }}" bind:cartAddFn="addFn" bind:cartReduceFn="reduceFn" bind:cartSelectGoodFn="selectGoodFn" bind:cartPutCountFn="putCountFn"></w-good>
+        <w-good wx:for="{{ goodArr }}" wx:key="index"  goodItem="{{ item }}" index="{{ index }}" supplyPriceStatusValue="{{ supplyPriceStatusValue }}"  roleId="{{ roleId }}" bind:cartAddFn="addFn" bind:cartReduceFn="reduceFn" bind:cartSelectGoodFn="selectGoodFn" bind:cartPutCountFn="putCountFn"></w-good>
 
         <image src="{{ emptyImg }}" class="empty_img" hidden="{{ goodArr.length !=0 }}"></image>
         <view class="title_msg" hidden="{{ goodArr.length !=0 }}">暂无商品</view>

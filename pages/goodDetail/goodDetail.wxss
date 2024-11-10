@@ -140,7 +140,7 @@
 
  .mch_name{
      margin-top: 20rpx;
-     font-size: 32rpx ;
+     font-size: 14px ;
 
      font-weight: bold;
      
