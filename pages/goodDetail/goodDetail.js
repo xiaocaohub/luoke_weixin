@@ -54,6 +54,7 @@ Page({
         emptyImg: "/public/images/empty.png"
       },
       onLoad (option) {
+            console.log("onLoad")
             let goodId = option.id;
             let userInfo = wx.getStorageSync("userInfo");
             let token = "";
@@ -71,6 +72,7 @@ Page({
             })
       },
       onShow () {
+          console.log("onShow")
           this.getGoodInfoFn()
           this.getCartInfoFn()
           let supplyPriceStatus = wx.getStorageSync('supplyPriceStatus');
@@ -79,6 +81,10 @@ Page({
           }, function () {
               this.getSameGoodFn()
           })
+      },
+      onUnload () {
+          
+           wx.navigateBack()
       },
       showDialogFn: function (e) {
            let index = e.currentTarget.dataset.index;
