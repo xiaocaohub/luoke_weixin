@@ -5,10 +5,13 @@
             <image src="{{ headImg }}" class="head_img"></image>
 
             <view class="text_con">
-                <view class="user_name">
+                <view class="user_name" wx:if="{{ userInfo }}">
                     <span>{{ userInfo.signatoryName?userInfo.signatoryName:userInfo.user_name }}</span>
                     <image src="{{ loginOutIcon }}" class="login_out" bind:tap="loginOutFn"></image>
                 </view>
+                <navigator class="user_name login_btn" url="/pages/login/login" wx:else hover-class="none">
+                    点击登录
+                </navigator>
                 <view class="phone_number">{{ userInfo.phone }}</view>
             </view>
         </view>

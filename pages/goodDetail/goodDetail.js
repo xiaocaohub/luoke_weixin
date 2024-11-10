@@ -82,10 +82,6 @@ Page({
               this.getSameGoodFn()
           })
       },
-      onUnload () {
-          
-           wx.navigateBack()
-      },
       showDialogFn: function (e) {
            let index = e.currentTarget.dataset.index;
            let btnFlag = index==0?false:true;

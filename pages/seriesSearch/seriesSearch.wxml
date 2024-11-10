@@ -6,20 +6,22 @@
       </view>
 
       <view class="filter_con">
-          <view class="item" bind:tap="getGoodListFn">综合</view>
-          <view class="item">
-              <span>销量</span>
-              <image src="{{ priceUp }}" class="img_icon"></image>
-          </view>
-          <view class="item">
+            <view class="item {{filterNavIndex==0?'on':''}}" bind:tap="resetFn">综合</view>
+            <view class="item {{filterNavIndex==1?'on':''}}" data-type="volume" bind:tap="selectBuyCountFn">
+                <span>销量</span>
+                <image src="{{ volumeSort =='asc'?priceUpOn:priceDown }}" class="img_icon"></image>
+            </view>
+            <view class="item {{filterNavIndex==2?'on':''}}" data-type="price" bind:tap="selectPriceFn">
                 <span>价格</span>
-                <image src="{{ priceUp }}" class="img_icon"></image>
-          </view>
-          <view class="item">
-              <span>筛选</span>
-              <image src="{{ screenIcon }}" class="img_icon"></image>
-          </view>
-      </view>
+            
+                <image src="{{ priceSort =='asc'?priceUpOn:priceDown }}" class="img_icon"></image>
+            </view>
+            <!-- <view class="item">
+                <span>筛选</span>
+                <image src="{{ screenIcon }}" class="img_icon"></image>
+            
+            </view> -->
+        </view>
    </view>
 
    <view class="good_list">    

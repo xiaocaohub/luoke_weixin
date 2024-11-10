@@ -60,7 +60,9 @@ page{
 .filter_con .item:first-child{
    justify-content: center;
 }
-
+.filter_con .item.on{
+  font-weight: bold;
+}
 .filter_con .item .img_icon{
    display: block;
    width: 28rpx;

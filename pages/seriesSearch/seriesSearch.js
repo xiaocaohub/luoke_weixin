@@ -3,8 +3,8 @@ Page({
     data: {
         searchSrc: "/public/icon/search.png",
 
-        priceUp: "/public/icon/price_up.png",
-
+ 
+        priceDown: "/public/icon/price_up_down.png",
         priceUpOn: "/public/icon/price_up_on.png",
         productClass: "",
         page: 1,
@@ -16,10 +16,19 @@ Page({
 
         goodImg: "https://luockoo.oss-accelerate.aliyuncs.com/1/7/20240905/1831642348333887488.jpg",
         token: "",
-        brandName: ""
+        brandName: "",
+        option: {
+          sortCriteria: "",
+          sort: "asc",
+          productLabel: ""
+       },
+        volumeSort: "asc",
+        
+        priceSort: "asc",
+        keyword: "",
+        filterNavIndex:0
     },
     onLoad (option) {
-      
         let brandId = option.id;
         let brandName = option.brandName;
         let token = wx.getStorageSync("userInfo").access_id;
@@ -30,7 +39,7 @@ Page({
             brandId: brandId,
             brandName: brandName
         }, function () {
-            this.getGoodListFn()
+            this.getGoodListFn(this.filterGoodFn)
         })
     },
     onShow () {
@@ -40,14 +49,83 @@ Page({
         })  
     },
     onReachBottom () {
+          let _this = this;
           let page = this.data.page + 1;
           this.setData({
               page: page
           }, function () {
-               this.getGoodListFn()
+             this.getGoodListFn(_this.reachBottomGoodFn)
           })      
     },
-    getGoodListFn: function () {
+      selectBuyCountFn: function (e) {    
+        let _this = this;
+        let option = this.data.option;
+        let sort = option.sort;
+        let type = e.currentTarget.dataset.type;
+        let volumeSort = this.data.volumeSort;
+        option.sortCriteria = type;
+        if (volumeSort == "asc") {
+            volumeSort= "desc";
+        } else {
+            volumeSort = "asc";
+        }
+        if (sort == "asc") {
+            option.sort = "desc";
+        } else {
+            option.sort = "asc";
+        }
+        this.setData({
+            option: option,
+            page: 1,
+            volumeSort: volumeSort,
+            filterNavIndex: 1
+        }, function () {
+            this.getGoodListFn(this.filterGoodFn, volumeSort)
+        })
+    },
+
+    selectPriceFn: function (e) {
+        let _this = this;
+        let option = this.data.option;
+        let sort = option.sort;
+        let type = e.currentTarget.dataset.type;
+        let priceSort = this.data.priceSort;
+        option.sortCriteria = type;
+        if (priceSort == "asc") {
+            priceSort= "desc";
+        } else {
+            priceSort = "asc";
+        }
+        if (sort == "asc") {
+            option.sort = "desc";
+        } else {
+            option.sort = "asc";
+        }
+
+        this.setData({
+            option: option,
+            page: 1,
+            priceSort: priceSort,
+            filterNavIndex: 2
+        }, function () {
+            _this.getGoodListFn(_this.filterGoodFn, priceSort)
+        })
+    },
+    resetFn: function () {
+      
+          let option =  {
+              sortCriteria: "",
+              sort: "asc",
+              productLabel: ""
+          };
+          this.setData({
+              option: option,
+              filterNavIndex: 0
+          }, function () {
+            this.getGoodListFn(this.filterGoodFn) 
+          })
+    },
+    getGoodListFn: function (callBack, sort) {
         let _this = this;
         let url = app.globalData.url;
         let productClass = this.data.productClass;
@@ -57,7 +135,10 @@ Page({
         let goodArr = this.data.goodArr;
          
         let token = this.data.token;
+        
+        
         let brandId = this.data.brandId;
+        let filterOption = this.data.option;
         wx.request({
             url: url, 
             method: "get",
@@ -69,14 +150,15 @@ Page({
                 pageSize: pageSize,   
                 productClass: "",
                 styleIds: "",
-                sortCriteria: "",
+                sortCriteria: filterOption.sortCriteria,
                 productLabel: "",
                 keyword: "",
                 queryCriteria: JSON.stringify(option),
-                sort: "",
+                sort: sort || "asc",
                 brandId: brandId,
-                accessId: token,
-                supplyPriceStatus: false // 供货价
+                accessId: token
+                // 供货价
+                // supplyPriceStatus: false  
             },
             header: {
               'content-type': 'application/json'  
@@ -85,19 +167,40 @@ Page({
                 let resData = res.data.data;
                 let goodsList = resData.goodsList;
                 let total = resData.total;
-                let arr = goodArr.concat(goodsList);
+                let brandName = "";
+                // let arr = goodArr.concat(goodsList);
                 let emptyFlag = false;
                 if (goodsList.length == 0) {
                     page -= 1;
                     emptyFlag = true;
                 }
+                if (resData) {
+                    brandName = resData.brandInfo.brand_name;
+                }
+      
+                callBack(goodsList)
                 _this.setData({
-                    goodArr: arr,
+                    // goodArr: arr,
                     total: total,
                     page: page,
-                    emptyFlag: emptyFlag
+                    emptyFlag: emptyFlag,
+                    brandName: brandName
                 })
             }
           })
+    },
+    filterGoodFn (arr) {
+          
+      console.log(arr)
+          this.setData({
+            goodArr: arr
+          })
+    },
+    reachBottomGoodFn: function (arr) {
+        let goodArr = this.data.goodArr;
+        let goodsList = goodArr.concat(arr);
+        this.setData({
+          goodArr: goodsList
+        })
     }
 })

@@ -20,6 +20,7 @@ page{
     display: flex;
     flex-direction: row;
     padding-top: 60rpx;
+    align-items: center;
 }
 .user_info_con  .head_img{
      width:120rpx;
@@ -28,6 +29,9 @@ page{
 .user_info_con  .text_con {
     width: 450rpx;
     margin-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .user_info_con  .user_name {
     height: 50rpx;
